@@ -3,14 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escape: то о чём регулярно забывают - Soviet Groove</title>
+    <title>Конвертируем CSV в таблицу Markdown - Soviet Groove</title>
     <link rel="stylesheet" type="text/css" href="/tech/static/main.css"/>
     <link rel="stylesheet" type="text/css" href="/tech/static/player-bar.css" />
     <link rel="shortcut icon" type="image/png" href="/tech/static/favicon.png"/>
     
     
 
-    <link rel="canonical" href="https://brokenroll.com/tech/regex-escape.html" />
+    <link rel="canonical" href="https://brokenroll.com/tech/csv-to-markdown.html" />
     <style id="pageSpecificStyle">
 
 
@@ -49,40 +49,52 @@ padding-top: 100px;
 
 
 
-<h1 data-slug="regex-escape">Escape: то о чём регулярно забывают</h1>
+<h1 data-slug="csv-to-markdown">Конвертируем CSV в таблицу Markdown</h1>
 
 <div class="textBlock tagList">
     <ul class="flatList">
     
-    <li><a href="/tech/tags/regex.html">regex</a></li>
+    <li><a href="/tech/tags/automation.html">automation</a></li>
     
     </ul>
 </div>
 
 
-<div class="textBlock">Небольшая <a href="https://www.baeldung.com/java-remove-all-characters-before-specific-one">статья Баелданга</a>, там такое:</div>
+<div class="textBlock">Понадобилось сконвертировать таблицу ods в маркдаун.</div>
 
-<pre class="textBlock">inputString.replaceAll(".*" + targetCharacter, "")
+<pre class="textBlock">npm install -g csv-to-markdown-table
 </pre>
 
-<div class="textBlock">Ни разу не видел чтобы коллеги эскейпили регулярки. Понятно что регулярно выражаться желательно бы поменьше, но когда их всё-таки разумно использовали, то хоть бы кто заэскейпил. Это такая область, где об экранировании не каждый и знает что оно в принципе существует; в отличие от url, html и sql, где общество к такому более-менее привыкло.</div>
+<div class="textBlock">Использование:</div>
 
-<div class="textBlock">В джаве это делается так:</div>
+<pre class="textBlock">> csv-to-markdown-table --delim :tab
 
-<pre class="textBlock">Pattern.quote("$")
+Reading from stdin... (press Ctrl+D at the start of a line to finish)
+CSV Delimiter: \t (tab) Headers: false
+жмём Cmd+V
+100	Core i3-12100
+110	Core i3-13100F
+99	Ryzen 5 5500
+жмём Ctrl+D
+|     |                |
+|-----|----------------|
+| 100 | Core i3-12100  |
+| 110 | Core i3-13100F |
+| 99  | Ryzen 5 5500   |
 </pre>
 
-<div class="textBlock">В питоне:</div>
+<div class="textBlock">Или сразу в буфер обмена:</div>
 
-<pre class="textBlock">>>> re.escape("$")
-'\\$'
+<pre class="textBlock">> csv-to-markdown-table | pbcopy
 </pre>
+
+<div class="textBlock">Правда, в таком случае в буфер попадает две лишние строки "Reading from stdin". Автору следовало писать их в stderr. А так работает.</div>
 
 
 
 
 <p class="textBlock articleDate">
-2024.05.05
+2024.05.13
 </p>
 
 
