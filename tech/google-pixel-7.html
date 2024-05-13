@@ -3,14 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Regex lookahead - Soviet Groove</title>
+    <title>Гугл пиксел сосед - Soviet Groove</title>
     <link rel="stylesheet" type="text/css" href="/tech/static/main.css"/>
     <link rel="stylesheet" type="text/css" href="/tech/static/player-bar.css" />
     <link rel="shortcut icon" type="image/png" href="/tech/static/favicon.png"/>
     
     
 
-    <link rel="canonical" href="https://zencd.ru/tech/regex-lookahead.html" />
+    <link rel="canonical" href="https://zencd.ru/tech/google-pixel-7.html" />
     <style id="pageSpecificStyle">
 
 
@@ -49,53 +49,28 @@ padding-top: 100px;
 
 
 
-<h1 data-slug="regex-lookahead">Regex lookahead</h1>
+<h1 data-slug="google-pixel-7">Гугл пиксел сосед</h1>
 
 <div class="textBlock tagList">
     <ul class="flatList">
     
-    <li><a href="/tech/tags/regex.html">regex</a></li>
+    <li><a href="/tech/tags/hardware.html">hardware</a></li>
     
     </ul>
 </div>
 
 
-<div class="textBlock">В <a href="regex-escape.html">предыдущей заметке</a> задача ставилась так: удалить все символы перед определенным символом. Оригинальное решение работает ожидаемо только для части символов: для доллара уже не сработает, а для открывающих скобок вобще свалится с исключением:</div>
+<div class="textBlock">Полтора года назад угораздило меня сменить телефон на Pixel 7. Покупал на старте, за 42700 с Германии. А вчера до меня не дозвонились на eSim, и сегодня не дозвонились. Вынул физическую симку - полегчало. Сейчас смотрю: лежит в ДНС за 60К - для такого хлама слишком много: батарея слабая, модем дно, заряжается два часа.</div>
 
-<pre class="textBlock">String baeldungIncorrect(String input, String find) {
-  return find + input.replaceAll(".*" + find, "");
-}
-</pre>
+<div class="textBlock">Замерил сеть - 6, 4 и 1 мбит/с на скачивание. Для сравнения, в два раза более дешёвый Poco X4 GT выдал в этой же локации, на той же симке 21 и 15.</div>
 
-<div class="textBlock">Это ошибка. Исправим:</div>
-
-<pre class="textBlock">String baeldungFixed(String input, String find) {
-  return find + input.replaceAll(".*" + Pattern.quote(find), "");
-}
-</pre>
-
-<div class="textBlock">Сначала вырезать символ, а потом его же добавлять обратно - получается довольно глупо. Я бы сделал это через единственную операцию замены, используя regex lookahead:</div>
-
-<pre class="textBlock">String lookahead(String input, String find) {
-  return input.replaceAll(".*(?=" + Pattern.quote(find) + ")", "");
-}
-</pre>
-
-<div class="textBlock">Верификация:</div>
-
-<pre class="textBlock">@Test
-public void test() {
-  assertEquals("$", baeldungIncorrect("12$34$56", "$"));
-  assertEquals("$56", baeldungFixed("12$34$56", "$"));
-  assertEquals("$56", lookahead("12$34$56", "$"));
-}
-</pre>
+<div class="textBlock">До этого были Xiaomi 12X, затем Realme GT2 Pro - с ними проблем не было, прекрасные аппараты.</div>
 
 
 
 
 <p class="textBlock articleDate">
-2024.05.06
+2024.05.13
 </p>
 
 

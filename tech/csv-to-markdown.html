@@ -10,7 +10,7 @@
     
     
 
-    <link rel="canonical" href="https://brokenroll.com/tech/csv-to-markdown.html" />
+    <link rel="canonical" href="https://zencd.ru/tech/csv-to-markdown.html" />
     <style id="pageSpecificStyle">
 
 
@@ -60,7 +60,7 @@ padding-top: 100px;
 </div>
 
 
-<div class="textBlock">Понадобилось сконвертировать экселевскую таблицу в маркдаун для блога.</div>
+<div class="textBlock">Понадобилось сконвертировать экселевскую таблицу в маркдаун для блога. По этому поводу нашлась хорошая тулза:</div>
 
 <pre class="textBlock">npm install -g csv-to-markdown-table
 </pre>
@@ -71,11 +71,11 @@ padding-top: 100px;
 
 Reading from stdin... (press Ctrl+D at the start of a line to finish)
 CSV Delimiter: \t (tab) Headers: false
-  жмём Cmd+V
+жмём Cmd+V
 100	Core i3-12100
 110	Core i3-13100F
 99	Ryzen 5 5500
-  жмём Ctrl+D
+жмём Ctrl+D
 |     |                |
 |-----|----------------|
 | 100 | Core i3-12100  |
@@ -88,7 +88,7 @@ CSV Delimiter: \t (tab) Headers: false
 <pre class="textBlock">> csv-to-markdown-table | pbcopy
 </pre>
 
-<div class="textBlock">Правда, в таком случае в буфер попадает две лишние строки "Reading from stdin". Автору следовало писать их в stderr. А так работает.</div>
+<div class="textBlock">Правда, в таком случае в буфер попадает две лишние строки "Reading from stdin". Автору следовало писать их в stderr. А так работает. Хоть и nodejs :)</div>
 
 
 
