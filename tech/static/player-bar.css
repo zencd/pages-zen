@@ -1,0 +1,52 @@
+﻿#video-player {
+  /* a div, then an iframe with video player */
+  display: none;
+}
+
+.player-bar {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  background: #999;
+  bottom: 0;
+  display: flex;
+}
+.player-bar-seek {
+  flex:1;
+  /*background: #ddd;*/
+}
+.player-bar-seek:hover {
+  background: #aaa;
+}
+.player-bar-progress {
+  background: #666;
+  width: 0%;
+  height: 50px;
+  line-height: 50px;
+}
+.player-bar-controls {
+  width: 100px;
+  /*background: #bbb;*/
+  line-height: 50px;
+}
+.player-bar-controls img {
+  width: 30px;
+  height: 30px;
+  padding: 10px 10px;
+}
+.player-bar-controls img:hover {
+  background: #aaa;
+}
+.player-bar-title {
+  font-family: JournalSans, sans-serif;
+  text-align: center;
+  font-size: 24px;
+  color: #222;
+  position: relative;
+  top: -50px;
+  line-height: 50px;
+  padding-left: 20px;
+  cursor: default;
+  /*width: 400px;*/
+  /*outline: 1px dotted red;*/
+}

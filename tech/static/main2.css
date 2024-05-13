@@ -1,0 +1,288 @@
+@font-face {
+  font-family: "JournalSans";
+  src: url("font/JournalSansC.otf") format("opentype");
+}
+@font-face {
+  font-family: "SchoolSoviet";
+  src: url("font/SchoolSoviet.otf") format("opentype");
+}
+@font-face {
+  font-family: "NewspaperSans";
+  src: url("font/NewspaperSansC.otf") format("opentype");
+}
+@font-face {
+  font-family: "School";
+  src: url("font/SCHOOLBC.OTF") format("opentype");
+}
+
+html {
+}
+
+p {
+margin: 0;
+line-height: 24px;
+}
+div {
+line-height: 24px;
+}
+h1 {
+line-height: 48px;
+xtext-align: right;
+}
+
+/*
+body {
+margin: 0;
+color: #bfbbbb;
+background: #222;
+background: url(psych.jpg) no-repeat center center fixed;
+background:
+  linear-gradient(to bottom, rgb(10, 0, 0, 0.8) 0%, rgb(10, 0, 0, 0.8) 100%),
+  url(iveriya-75-sm.jpg) no-repeat center center fixed;
+background-size: cover;
+backdrop-filter: blur(30px);
+font-size: 22px;
+font-family: School, sans-serif;
+}
+*/
+
+/*
+.wrap1 {
+margin: 0 auto;
+padding-top: 400px;
+background:
+  linear-gradient(to bottom, rgb(34, 34, 34, 0) 0px, rgb(34, 34, 34, 0.8) 300px, rgb(34, 34, 34, 0.9) 350px, rgb(34, 34, 34, 1) 400px),
+  url(scanlines.png),
+  url(iveriya-75.jpg) no-repeat top center fixed;
+background-size: 100%, auto, 650px auto;
+max-width: 650px;
+backdrop-filter: blur(60px);
+}
+*/
+
+body {
+margin: 0;
+font-size: 22px;
+color: #bfbbbb;
+background: #222;
+font-family: School, sans-serif;
+}
+
+.wrap0 {
+-webkit-backdrop-filter: saturate(50%) sepia(0%) contrast(70%) brightness(0.3) blur(30px);
+backdrop-filter: saturate(50%) sepia(0%) contrast(70%) brightness(0.3) blur(30px);
+xbackground-image: url(./scanlines.png);
+}
+
+.wrap1 {
+margin: 0 auto;
+max-width: 650px;
+xbackdrop-filter: blur(60px);
+box-sizing: border-box; min-height: 100vh; /*100% height*/
+}
+
+.wrap2 {
+  background: #222;
+  background-image: url(./bg222-noise.png);
+  padding: 5px;
+}
+
+@media only screen and (min-width: 650px) {
+  .wrap2 {
+    padding: 30px;
+  }
+}
+
+h1 {
+  margin: 0;
+  color: #AB9239;
+  color: #A82B21;
+  color: #4276A4;
+  color: #aaa;
+  color: #945744;
+  font-family: JournalSans, School, serif;
+  font-family: NewspaperSans, sans-serif;
+  font-weight: normal;
+  xfont-family: School, serif;
+  font-size: 52px;
+  word-spacing: -12px;
+}
+p {
+  font-family: JournalSans, School, serif;
+  font-family: serif;
+  font-family: School, serif;
+  line-height: 120%;
+  font-size: 22px;
+}
+.info {
+  font-family: JournalSans, School, serif;
+  font-size: 22px;
+}
+a {
+  color: #AB9239;
+  color: #6BA8BB;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.title {
+  font-family: NewspaperSans, sans-serif;
+  font-family: JournalSans, School, serif;
+  xfont-size: 32px;
+}
+
+.textBlock {
+margin-top: 24px;
+overflow-wrap: break-word;
+}
+
+.textBlock img {
+max-width: 100%;
+}
+
+.textBlock i {
+font-style: normal;
+font-size: 18px;
+}
+.trackList {
+font-family: JournalSans, sans-serif;
+}
+.trackList a {
+text-decoration: none;
+}
+.trackList a:hover {
+text-decoration: underline;
+}
+
+.releaseInfo {
+font-family: School, serif;
+font-family: JournalSans, sans-serif;
+xcolor: #888;
+}
+.releaseInfo a {
+xcolor: #888;
+}
+
+.tagList {
+font-family: JournalSans, sans-serif;
+xtext-align: right;
+}
+
+.flatList {
+  display: inline;
+  list-style: none;
+  padding: 0;
+}
+.flatList li {
+  display: inline;
+}
+.flatList li:after {
+  content: ", ";
+}
+.flatList li:last-child:after {
+    content: "";
+}
+
+audio {
+width: 100%;
+}
+
+.footer {
+margin-top: 50px;
+text-align: center;
+font-family: JournalSans;
+color: #666;
+}
+
+.filmList {
+list-style-type: none;
+padding: 0;
+}
+.filmList a {
+text-decoration: none;
+}
+.filmList a:hover {
+text-decoration: underline;
+}
+
+.mainMenu a {
+font-size: 18px;
+background-color: #111;
+background-color: rgba(0, 0, 0, 0.7);
+line-height: 40px; height: 40px;
+padding: 5px 5px 3px 5px;
+text-decoration: none;
+}
+.mainMenu a:hover {
+background: #AB9239;
+background: #6BA8BB;
+color: #222;
+}
+
+.vkVideoPLayer {
+width: 100%;
+}
+
+.ytVideoPLayer1 {
+width: 100%;
+height: 351px;
+display: block;
+}
+.ytVideoPLayer2 {
+width: 100%;
+height: 351px;
+}
+
+.tagCat {
+margin-top: 24px;
+}
+.tagCat a {
+text-decoration: none;
+}
+.tagCat a:hover {
+text-decoration: underline;
+}
+
+abbr, code {
+font-family: JournalSans, sans-serif;
+letter-spacing: 1px;
+}
+
+.articleDate {
+font-family: JournalSans;
+color: #666;
+}
+
+.audioPlayer {
+xbackground: #AB9239;
+xcolor: #222;
+xline-height: 44px;
+}
+
+.name {
+xfont-weight: bold;
+font-family: JournalSans;
+background: #333;
+}
+
+pre {
+  font-size: 15px;
+  color: #999;
+  overflow-x: scroll;
+  xfont-family: JournalSans, sans-serif;
+}
+
+.fileName {
+  margin-top: 24px;
+  xbackground: #444;
+  xfont-style: italic;
+}
+
+p {
+  margin-top: 24px;
+}
+
+summary {
+  cursor: pointer;
+}
