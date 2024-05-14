@@ -78,6 +78,7 @@
         if (bgStyle) {
             $pageSpecificStyle.innerText = bgStyle
         }
+        tryLoadGithubComment();
     }
 
     window.onpopstate = (e) => {
@@ -86,4 +87,5 @@
 
     setupInternalLinks(document)
     setupYoutubeVideoPlayerLinks(document)
+    tryLoadGithubComment()
 })();

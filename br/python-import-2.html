@@ -11,6 +11,7 @@
     
 
     <link rel="canonical" href="https://zencd.ru/br/python-import-2.html" />
+    <script src="/br/static/ghc.js"></script>
     <style id="pageSpecificStyle">
 
 
@@ -49,7 +50,7 @@ padding-top: 100px;
 
 
 
-<h1 data-slug="python-import-2">Питон против импортов №2</h1>
+<h1 data-slug="python-import-2" data-ghc-id="">Питон против импортов №2</h1>
 
 <div class="textBlock tagList">
     <ul class="flatList">
@@ -60,35 +61,23 @@ padding-top: 100px;
 </div>
 
 
-<div class="textBlock">Оказалось, что Питон умеет в "транзитивныe импорты". И это не достоинство. А бардак. Обнаружилось, как и в <a href="python-import-mess.html">прошлый раз</a>, в результате рефакторинга.</div>
-
-<div class="textBlock">Например:</div>
-
-<ul>
-<li>
-<div class="textBlock">модуль 2 импортирует некий символ из модуля 1;</div>
-</li>
-<li>
-<div class="textBlock">это имя становится доступно не только для использования по месту, но и для ре-импорта из других модулей;</div>
-</li>
-<li>
-<div class="textBlock">модуль 3 импортирует его из 2-го.</div>
-</li>
-</ul>
+<div class="textBlock">Оказалось, что Питон умеет в "транзитивныe импорты". И это не достоинство. Обнаружилось, как и в <a href="python-import-mess.html">прошлый раз</a>, в ходе рефакторинга.</div>
 
 <pre class="textBlock">+------+    +------+    +------+
 | mod1 | &lt;- | mod2 | &lt;- | mod3 |
 +------+    +------+    +------+
 </pre>
 
-<div class="textBlock">В нормальной ситуации программист хочет другого:</div>
+<div class="textBlock">То есть, когда некий символ импортируется в модуль 2, то для других модулей этот символ становится доступен к импорту из модуля 2 как будто он был там <em>определён</em>. Ну да, давай добавим дополнительную связь между модулями, офигительная же идея; инкапсуляция по Монти Пайтону, лол.</div>
+
+<div class="textBlock">Нормальный программист хочет другого:</div>
 
 <pre class="textBlock">+------+
 | mod1 | &lt;-- mod2
 |      | &lt;-- mod3
 +------+
 </pre>
-
+<h2>Верификация</h2>
 <div class="fileName">File: pytransimport/mod1.py</div>
 
 <pre class="textBlock">class Foo: pass
@@ -101,8 +90,15 @@ padding-top: 100px;
 
 <div class="fileName">File: pytransimport/mod3.py</div>
 
-<pre class="textBlock">from mod2 import Foo
-print(Foo)
+<pre class="textBlock">from mod1 import Foo as Foo1
+from mod2 import Foo as Foo2
+print(Foo1 is Foo2)
+</pre>
+
+<div class="textBlock">Результат:</div>
+
+<pre class="textBlock">> python3 mod3.py
+True
 </pre>
 
 
@@ -113,18 +109,11 @@ print(Foo)
 </p>
 
 
+
+
             <!-- pageContent end -->
             </div>
-            <div class="footer">
-                2022&mdash;2024
-                
-<!--
-                
--->
-                <br>
-                <br>
-                <br>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -176,9 +165,11 @@ const books = [
 //console.log('res', res)
 </script>
 
+
 <!-- Yandex.Metrika counter -->
 <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(97267275, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/97267275" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
 <!-- /Yandex.Metrika counter -->
+
 
 </body>
 </html>
