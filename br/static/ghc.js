@@ -12,14 +12,11 @@ function tryLoadGithubComment() {
     }).then((response) => {
         return response.json()
     }).then((comments) => {
-        //console.log('comments', comments)
         comments.forEach((comment) => {
-            //console.log('comment', comment)
-            let t = "<a href='" + comment.user.html_url + "'>" + comment.user.login + "</a>:";
-            t += comment.body_html;
+            let text = "<a href='" + comment.user.html_url + "' target='_blank'>" + comment.user.login + "</a>: " + comment.body_html;
             const $ghcListItem = document.createElement('div')
             $ghcListItem.setAttribute('class', 'ghcListItem');
-            $ghcListItem.innerHTML = t;
+            $ghcListItem.innerHTML = text;
             document.querySelector('#ghcList').appendChild($ghcListItem);
         })
     }).catch((error) => {

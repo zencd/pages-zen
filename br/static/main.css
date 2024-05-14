@@ -301,12 +301,24 @@ summary {
 }
 
 /*github comments*/
+#ghcList * {
+  font-family: JournalSans, sans-serif;
+}
+#ghcList a {
+  color: #666;
+  text-decoration: underline;
+}
+#ghcList a:hover {
+  color: #6BA8BB;
+}
 #ghcList > div {
     margin-top: 24px;
+  color: #666;
 }
 #ghcList p {
     display: inline;
     margin-left: 10px;
+    color: #666;
 }
 .ghcAdd {
 }
