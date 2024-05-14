@@ -3,14 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Конвертер таблиц из PDF в Excel - Bombing Review</title>
+    <title>Система комментариев на основе Github issues - Bombing Review</title>
     <link rel="stylesheet" type="text/css" href="/br/static/main.css"/>
     <link rel="stylesheet" type="text/css" href="/br/static/player-bar.css" />
     <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
     
     
 
-    <link rel="canonical" href="https://zencd.ru/br/pdf-tables-ocr.html" />
+    <link rel="canonical" href="https://zencd.ru/br/github-comments.html" />
     <script src="/br/static/ghc.js"></script>
     <style id="pageSpecificStyle">
 
@@ -50,23 +50,56 @@ padding-top: 100px;
 
 
 
-<h1 data-slug="pdf-tables-ocr" data-ghc-id="">Конвертер таблиц из PDF в Excel</h1>
+<h1 data-slug="github-comments" data-ghc-id="">Система комментариев на основе Github issues</h1>
 
 
 
 
-<div class="textBlock">Хороший конвертер таблиц из PDF в Excel. 500 страниц можно бесплатно. Работает через распозавание изображения, OCR, что и неудивительно т.к. пдф внутри это дикая неструктурированная мешанина. Для сравнения, локальная распознавалка на джаве <abbr>Tabula</abbr> показала себя на моём документе хуже. А здесь, на 60 страницах не пришлось ничего подправлять.</div>
+<div class="textBlock">Искал систему комментирования для встраивания на статический сайт — может придумали что получше bloat дискуса. И таки <a href="https://donw.io/post/github-comments/">придумали</a> в 2017. Гисты я, конечно, сам догадался встраивать на статические сайты, и джаваскриптом выцеплять оттуда данные, но использовать для комментариев баг-трекер — это, конечно, забавная идея.</div>
 
-<div class="textBlock"><a href="https://nanonets.com/">nanonets.com</a></div>
+<div class="textBlock">Переписал с jquery на ванильный джс, и встроил <a href="pixel-ordered.html">сюда</a>.</div>
+
+<div class="fileName">File: ghc/index.html</div>
+
+<pre class="textBlock">&lt;div id="ghcList">&lt;/div>
+&lt;script>
+  loadGithubComment(1);
+&lt;/script>
+</pre>
+
+<div class="fileName">File: ghc/ghc.js</div>
+
+<pre class="textBlock">function loadGithubComment(githubIssueId) {
+    const githubUser = use yours
+    const githubRepo = use yours
+    const addCommentUrl = `https://github.com/${githubUser}/${githubRepo}/issues/${githubIssueId}`;
+    const githubApiUrl = `https://api.github.com/repos/${githubUser}/${githubRepo}/issues/${githubIssueId}/comments`;
+    fetch(githubApiUrl, {
+        headers: {Accept: "application/vnd.github.v3.html+json"}
+    }).then((response) => {
+        return response.json()
+    }).then((comments) => {
+        comments.forEach((comment) => {
+            let text = "&lt;a href='" + comment.user.html_url + "' target='_blank'>" + comment.user.login + "&lt;/a>: " + comment.body_html;
+            const $ghcListItem = document.createElement('div')
+            $ghcListItem.setAttribute('class', 'ghcListItem');
+            $ghcListItem.innerHTML = text;
+            document.querySelector('#ghcList').appendChild($ghcListItem);
+        })
+    }).catch((error) => {
+        console.log(error)
+    });
+}
+</pre>
 
 
 
 
 <p class="textBlock articleDate">
-    2024.04.19
+    2024.05.14
     in
     
-    <a href="/br/tags/tools.html">tools</a>
+    <a href="/br/tags/webdev.html">webdev</a>
     
 </p>
 

@@ -54,13 +54,7 @@ padding-top: 350px;
 
 <h1 data-slug="python-import-2" data-ghc-id="">Питон против импортов №2</h1>
 
-<div class="textBlock tagList">
-    <ul class="flatList">
-    
-    <li><a href="/br/tags/python.html">python</a></li>
-    
-    </ul>
-</div>
+
 
 
 <div class="textBlock">Оказалось, что Питон умеет в т.с. транзитивныe импорты. И это не достоинство. Обнаружил, как и в <a href="python-import-mess.html">прошлый раз</a>, в ходе рефакторинга. Иначе не поверил бы, что это реально.</div>
@@ -80,17 +74,17 @@ padding-top: 350px;
 +------+
 </pre>
 <h2>Верификация</h2>
-<div class="fileName">File: pytransimport/mod1.py</div>
+<div class="fileName">File: pytrans/mod1.py</div>
 
 <pre class="textBlock">class Foo: pass
 </pre>
 
-<div class="fileName">File: pytransimport/mod2.py</div>
+<div class="fileName">File: pytrans/mod2.py</div>
 
 <pre class="textBlock">from mod1 import Foo
 </pre>
 
-<div class="fileName">File: pytransimport/mod3.py</div>
+<div class="fileName">File: pytrans/mod3.py</div>
 
 <pre class="textBlock">from mod1 import Foo as Foo1
 from mod2 import Foo as Foo2
@@ -107,7 +101,11 @@ True
 
 
 <p class="textBlock articleDate">
-2024.05.14
+    2024.05.14
+    in
+    
+    <a href="/br/tags/python.html">python</a>
+    
 </p>
 
 
