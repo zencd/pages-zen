@@ -137,6 +137,10 @@ margin-top: 24px;
 overflow-wrap: break-word;
 }
 
+li > .textBlock {
+margin-top: 0;
+}
+
 .textBlock img {
 max-width: 100%;
 }

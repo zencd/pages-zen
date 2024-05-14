@@ -3,14 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Внезапная недоступность некоторых IP - Bombing Review</title>
+    <title>Питон против импортов №2 - Bombing Review</title>
     <link rel="stylesheet" type="text/css" href="/br/static/main.css"/>
     <link rel="stylesheet" type="text/css" href="/br/static/player-bar.css" />
     <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
     
     
 
-    <link rel="canonical" href="https://zencd.ru/br/router-reboot.html" />
+    <link rel="canonical" href="https://zencd.ru/br/python-import-2.html" />
     <style id="pageSpecificStyle">
 
 
@@ -49,28 +49,67 @@ padding-top: 100px;
 
 
 
-<h1 data-slug="router-reboot">Внезапная недоступность некоторых IP</h1>
+<h1 data-slug="python-import-2">Питон против импортов №2</h1>
 
 <div class="textBlock tagList">
     <ul class="flatList">
     
-    <li><a href="/br/tags/network.html">network</a></li>
+    <li><a href="/br/tags/python.html">python</a></li>
     
     </ul>
 </div>
 
 
-<div class="textBlock">Внезапно пропала connectivity из домашней сети до хоста <abbr>brew.sh</abbr> и всего что хостится на <abbr>github.io</abbr> — курл грузит до истечения таймаута. Остальной интернет доступен как обычно.</div>
+<div class="textBlock">Оказалось, что Питон умеет в "транзитивныe импорты". И это не достоинство (а бардак). Обнаружилось, как и в <a href="python-import-mess.html">прошлый раз</a>, в результате рефакторинга.</div>
 
-<div class="textBlock">Так вот, несколько неожиданно для меня, помог ребут <abbr>TP-Link TL-WR850N</abbr>. Могу только догадываться что это было: может пул каких-нибудь keep-alive соединений оказался исчерпан в прошивке роутера?</div>
+<div class="textBlock">Например:</div>
 
-<div class="textBlock">Вспомнил что раньше такая проблема была с внезапной недоступностью <abbr>reg.ru</abbr> — открывается сайт нормально, а дальнейшие обращения уже таймаутятся; через какое-то время проходит.</div>
+<ul>
+<li>
+<div class="textBlock">модуль 2 импортирует некий символ из модуля 1;</div>
+</li>
+<li>
+<div class="textBlock">это имя становится доступно не только для использования по месту, но и для ре-импорта из других модулей;</div>
+</li>
+<li>
+<div class="textBlock">модуль 3 импортирует его из 2-го.</div>
+</li>
+</ul>
+
+<pre class="textBlock">+------+    +------+    +------+
+| mod1 | &lt;- | mod2 | &lt;- | mod3 |
++------+    +------+    +------+
+</pre>
+
+<div class="textBlock">В нормальной ситуации программист хочет другого:</div>
+
+<pre class="textBlock">+------+
+| mod1 | &lt;-- mod2
+|      | &lt;-- mod3
++------+
+</pre>
+
+<div class="fileName">File: pytransimport/mod1.py</div>
+
+<pre class="textBlock">class Foo: pass
+</pre>
+
+<div class="fileName">File: pytransimport/mod2.py</div>
+
+<pre class="textBlock">from mod1 import Foo
+</pre>
+
+<div class="fileName">File: pytransimport/mod3.py</div>
+
+<pre class="textBlock">from mod2 import Foo
+print(Foo)
+</pre>
 
 
 
 
 <p class="textBlock articleDate">
-2024.04.20
+2024.05.14
 </p>
 
 
