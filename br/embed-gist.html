@@ -3,12 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tag webdev - Bombing Review</title>
+    <title>Встраиваем gist на сайт - Bombing Review</title>
     <link rel="stylesheet" type="text/css" href="/br/static/main.css"/>
     <link rel="stylesheet" type="text/css" href="/br/static/player-bar.css" />
     <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
     
-    <link rel="canonical" href="https://zencd.ru/br/tags/webdev.html" />
+    
+
+    <link rel="canonical" href="https://zencd.ru/br/embed-gist.html" />
     <script src="/br/static/ghc.js"></script>
     <style id="pageSpecificStyle">
 
@@ -46,17 +48,59 @@ padding-top: 100px;
             <!-- pageContent begin -->
             
 
-<h1>Webdev: 2</h1>
+
+
+<h1 data-slug="embed-gist" data-ghc-id="">Встраиваем gist на сайт</h1>
 
 
 
-<ol class="filmList">
 
-    <li>2024.05 <a href="/br/embed-gist.html">Встраиваем gist на сайт</a>
+<div class="textBlock">По задумке авторов, гисты встраиваются так:</div>
 
-    <li>2024.05 <a href="/br/github-comments.html">Система комментариев на основе Github issues</a>
+<pre class="textBlock">&lt;script src="https://gist.github.com/zencd/df0a4f1f50b69c7ff7e24220ec2e10ee.js">&lt;/script>
+</pre>
 
-</ol>
+<div class="textBlock"><script src="https://gist.github.com/zencd/df0a4f1f50b69c7ff7e24220ec2e10ee.js"></script>
+</div>
+
+<div class="textBlock">Обложим скрипт невидимым дивом:</div>
+
+<pre class="textBlock">&lt;div style="display: none;">
+&lt;script src="https://gist.github.com/zencd/df0a4f1f50b69c7ff7e24220ec2e10ee.js">&lt;/script>
+&lt;!-- инфа с гитхаба добавится сюда -->
+&lt;/div>
+</pre>
+
+<div class="textBlock">При этом скрипт не генерит <abbr>iframe</abbr> (хотя мог бы), а добавляет свои ноды прямо по месту работы. Это позволяет нам прочитать <abbr>DOM</abbr> и создать новые ноды по месту новой прописки: <abbr>#infoFromGist</abbr>. И, кстати, теперь можно в <abbr>HTML</abbr>.</div>
+
+<pre class="textBlock">&lt;!-- новое место для информации с гитхаба -->
+&lt;div id="infoFromGist">&lt;/div>
+
+&lt;script>
+(function() {
+    const $infoFromGist = document.querySelector('#infoFromGist')
+    var srcLines = document.querySelectorAll('.js-file-line');
+    const lines = [];
+    [].forEach.call(srcLines, function (line) {
+        lines.push(line.innerText)
+    });
+    $infoFromGist.innerHTML = lines.join('\n')
+})();
+&lt;/script>
+</pre>
+
+
+
+
+<p class="textBlock articleDate">
+    2024.05.15
+    in
+    
+    <a href="/br/tags/webdev.html">webdev</a>
+    
+</p>
+
+
 
 
             <!-- pageContent end -->

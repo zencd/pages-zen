@@ -55,38 +55,38 @@ padding-top: 100px;
 
 
 
-<div class="textBlock">Искал систему комментирования для встраивания на статический сайт — может придумали что получше bloat дискуса. И таки <a href="https://donw.io/post/github-comments/">придумали</a> в 2017. Гисты я, конечно, сам догадался встраивать на статические сайты, и джаваскриптом выцеплять оттуда данные, но использовать для комментариев баг-трекер — это, конечно, забавная идея.</div>
+<div class="textBlock">Искал систему комментирования для встраивания на статический сайт — может придумали что получше bloat дискуса. И таки <a href="https://donw.io/post/github-comments/">придумали</a> в 2017. Встраивать гисты на статические сайты я, конечно, и сам догадывался, чтобы потом <a href="embed-gist.html">джаваскриптом выцеплять</a> оттуда данные, но использовать для комментариев баг-трекер — это, конечно, забавная идея.</div>
 
 <div class="textBlock">Переписал с jquery на ванильный джс, и встроил <a href="pixel-ordered.html">сюда</a>.</div>
 
 <div class="fileName">File: ghc/index.html</div>
 
-<pre class="textBlock">&lt;div id="ghcList">&lt;/div>
-&lt;script>
-  loadGithubComment(1);
-&lt;/script>
+<pre class="textBlock">&lt;div id="ghcList"&gt;&lt;/div&gt;
+&lt;script&gt;
+  loadGithubComments(1);
+&lt;/script&gt;
 </pre>
 
 <div class="fileName">File: ghc/ghc.js</div>
 
-<pre class="textBlock">function loadGithubComment(githubIssueId) {
+<pre class="textBlock">function loadGithubComments(githubIssueId) {
     const githubUser = use yours
     const githubRepo = use yours
     const addCommentUrl = `https://github.com/${githubUser}/${githubRepo}/issues/${githubIssueId}`;
     const githubApiUrl = `https://api.github.com/repos/${githubUser}/${githubRepo}/issues/${githubIssueId}/comments`;
     fetch(githubApiUrl, {
         headers: {Accept: "application/vnd.github.v3.html+json"}
-    }).then((response) => {
+    }).then((response) =&gt; {
         return response.json()
-    }).then((comments) => {
-        comments.forEach((comment) => {
-            let text = "&lt;a href='" + comment.user.html_url + "' target='_blank'>" + comment.user.login + "&lt;/a>: " + comment.body_html;
+    }).then((comments) =&gt; {
+        comments.forEach((comment) =&gt; {
+            let text = "&lt;a href='" + comment.user.html_url + "' target='_blank'&gt;" + comment.user.login + "&lt;/a&gt;: " + comment.body_html;
             const $ghcListItem = document.createElement('div')
             $ghcListItem.setAttribute('class', 'ghcListItem');
             $ghcListItem.innerHTML = text;
             document.querySelector('#ghcList').appendChild($ghcListItem);
         })
-    }).catch((error) => {
+    }).catch((error) =&gt; {
         console.log(error)
     });
 }
