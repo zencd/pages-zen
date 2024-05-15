@@ -282,7 +282,7 @@ background: #333;
 pre {
   font-size: 15px;
   color: #999;
-  overflow-x: scroll;
+  overflow-x: auto;
   xfont-family: JournalSans, sans-serif;
 }
 
