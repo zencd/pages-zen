@@ -66,6 +66,10 @@ font-size: 22px;
 color: #bfbbbb;
 background: #222;
 font-family: School, sans-serif;
+font-family: "PT Sans", Montserrat, School, sans-serif;
+font-family: "PT Serif", sans-serif;
+font-family: Palatino, serif;
+font-weight: 400;
 }
 
 .wrap0 {
@@ -101,11 +105,24 @@ h1 {
   color: #aaa;
   color: #945744;
   font-family: JournalSans, School, serif;
+  font-family: School, serif;
   font-family: NewspaperSans, sans-serif;
   font-weight: normal;
-  xfont-family: School, serif;
   font-size: 52px;
   word-spacing: -12px;
+
+  font-family: Russo One, sans-serif;
+  font-size: 52px;
+  word-spacing: 0;
+
+  font-family: Jost, sans-serif;
+  font-size: 52px;
+  font-weight: 400;
+  word-spacing: 0;
+
+  font-family: "Amatic SC", sans-serif;
+  font-size: 52px;
+  word-spacing: 0;
 }
 h2 {
   font-family: NewspaperSans, sans-serif;
@@ -117,6 +134,7 @@ p {
   font-family: JournalSans, School, serif;
   font-family: serif;
   font-family: School, serif;
+  font-family: MONTSERRAT, serif;
   line-height: 120%;
   font-size: 22px;
 }
@@ -176,6 +194,7 @@ xcolor: #888;
 
 .tagList {
 font-family: JournalSans, sans-serif;
+font-family: Palatino, serif;
 xtext-align: right;
 }
 
@@ -202,6 +221,7 @@ width: 100%;
 margin-top: 50px;
 text-align: center;
 font-family: JournalSans;
+font-family: Palatino, serif;
 color: #666;
 }
 
@@ -259,12 +279,21 @@ text-decoration: underline;
 
 abbr, code {
 font-family: JournalSans, sans-serif;
+font-family: Palatino, serif;
 letter-spacing: 1px;
 }
 
 .articleDate {
 font-family: JournalSans;
+font-family: Palatino, serif;
 color: #666;
+}
+.articleDate a {
+color: #666;
+text-decoration: underline;
+}
+.articleDate a:hover {
+color: #6BA8BB;
 }
 
 .audioPlayer {
@@ -283,7 +312,7 @@ pre {
   font-size: 15px;
   color: #999;
   overflow-x: auto;
-  xfont-family: JournalSans, sans-serif;
+  font-family: monospace;
 }
 
 .fileName {
@@ -302,7 +331,7 @@ summary {
 
 /*github comments*/
 #ghcList * {
-  font-family: JournalSans, sans-serif;
+  font-family: Palatino, serif;
 }
 #ghcList a {
   color: #666;
