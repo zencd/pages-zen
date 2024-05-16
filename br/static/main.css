@@ -237,6 +237,8 @@ color: #666;
 }
 .articleDate a:hover {
   color: #6BA8BB;
+  text-decoration: none;
+  background: linear-gradient(0deg, #245 50%, transparent 0);
 }
 
 .audioPlayer {
