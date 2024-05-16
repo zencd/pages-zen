@@ -30,44 +30,11 @@ line-height: 48px;
 xtext-align: right;
 }
 
-/*
-body {
-margin: 0;
-color: #bfbbbb;
-background: #222;
-background: url(psych.jpg) no-repeat center center fixed;
-background:
-  linear-gradient(to bottom, rgb(10, 0, 0, 0.8) 0%, rgb(10, 0, 0, 0.8) 100%),
-  url(iveriya-75-sm.jpg) no-repeat center center fixed;
-background-size: cover;
-backdrop-filter: blur(30px);
-font-size: 22px;
-font-family: School, sans-serif;
-}
-*/
-
-/*
-.wrap1 {
-margin: 0 auto;
-padding-top: 400px;
-background:
-  linear-gradient(to bottom, rgb(34, 34, 34, 0) 0px, rgb(34, 34, 34, 0.8) 300px, rgb(34, 34, 34, 0.9) 350px, rgb(34, 34, 34, 1) 400px),
-  url(scanlines.png),
-  url(iveriya-75.jpg) no-repeat top center fixed;
-background-size: 100%, auto, 650px auto;
-max-width: 650px;
-backdrop-filter: blur(60px);
-}
-*/
-
 body {
 margin: 0;
 font-size: 22px;
 color: #bfbbbb;
 background: #222;
-font-family: School, sans-serif;
-font-family: "PT Sans", Montserrat, School, sans-serif;
-font-family: "PT Serif", sans-serif;
 font-family: Palatino, serif;
 font-weight: 400;
 }
@@ -104,25 +71,9 @@ h1 {
   color: #4276A4;
   color: #aaa;
   color: #945744;
-  font-family: JournalSans, School, serif;
-  font-family: School, serif;
-  font-family: NewspaperSans, sans-serif;
-  font-weight: normal;
-  font-size: 52px;
-  word-spacing: -12px;
-
-  font-family: Russo One, sans-serif;
-  font-size: 52px;
-  word-spacing: 0;
-
-  font-family: Jost, sans-serif;
-  font-size: 52px;
-  font-weight: 400;
-  word-spacing: 0;
-
   font-family: "Amatic SC", sans-serif;
   font-size: 52px;
-  word-spacing: 0;
+  font-weight: normal;
 }
 h2 {
   font-family: NewspaperSans, sans-serif;
@@ -131,10 +82,6 @@ h2 {
   xletter-spacing: 0px;
 }
 p {
-  font-family: JournalSans, School, serif;
-  font-family: serif;
-  font-family: School, serif;
-  font-family: Montserrat, serif;
   line-height: 120%;
   font-size: 22px;
 }
@@ -146,10 +93,6 @@ a {
   color: #AB9239;
   color: #6BA8BB;
   text-decoration: none;
-
-  xcolor: inherit;
-  xdisplay: inline;
-  xbackground: linear-gradient(0deg, #235 50%, transparent 0);
 }
 a:hover {
   text-decoration: underline;
@@ -197,7 +140,6 @@ xcolor: #888;
 }
 
 .tagList {
-font-family: JournalSans, sans-serif;
 font-family: Palatino, serif;
 xtext-align: right;
 }
@@ -224,7 +166,6 @@ width: 100%;
 .footer {
 margin-top: 50px;
 text-align: center;
-font-family: JournalSans;
 font-family: Palatino, serif;
 color: #666;
 }
@@ -282,36 +223,20 @@ text-decoration: underline;
 }
 
 abbr, code {
-font-family: JournalSans, sans-serif;
 font-family: Palatino, serif;
-xbackground: #333;
-xfont-size: 17px;
-letter-spacing: 1px;
 }
 
 .articleDate {
-font-family: JournalSans;
 font-family: Palatino, serif;
 color: #666;
 }
 .articleDate a {
   color: #666;
-  xtext-decoration: underline;
   display: inline;
   background: linear-gradient(0deg, #234 50%, transparent 0);
 }
-/*.articleDate a::before {
-  background-color: red;
-  outline: 1px solid red;
-  content: '';
-  position: absolute;
-  width: 100%;
-  border: 1px solid red;
-  left: 0px;
-  top: 0px;
-}*/
 .articleDate a:hover {
-color: #6BA8BB;
+  color: #6BA8BB;
 }
 
 .audioPlayer {
@@ -353,8 +278,6 @@ summary {
 }
 #ghcList a {
   color: #666;
-  xtext-decoration: underline;
-
   display: inline;
   background: linear-gradient(0deg, #234 50%, transparent 0);
 }
