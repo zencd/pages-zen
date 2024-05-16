@@ -93,9 +93,15 @@ a {
   color: #AB9239;
   color: #6BA8BB;
   text-decoration: none;
+
+/*  color: inherit;*/
+/*  display: inline;*/
+/*  background: linear-gradient(0deg, #234 50%, transparent 0);*/
 }
 a:hover {
+  color: #6BA8BB;
   text-decoration: underline;
+/*  text-decoration: none;*/
 }
 .title {
   font-family: NewspaperSans, sans-serif;
