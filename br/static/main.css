@@ -134,7 +134,7 @@ p {
   font-family: JournalSans, School, serif;
   font-family: serif;
   font-family: School, serif;
-  font-family: MONTSERRAT, serif;
+  font-family: Montserrat, serif;
   line-height: 120%;
   font-size: 22px;
 }
@@ -146,6 +146,10 @@ a {
   color: #AB9239;
   color: #6BA8BB;
   text-decoration: none;
+
+  xcolor: inherit;
+  xdisplay: inline;
+  xbackground: linear-gradient(0deg, #235 50%, transparent 0);
 }
 a:hover {
   text-decoration: underline;
@@ -280,6 +284,8 @@ text-decoration: underline;
 abbr, code {
 font-family: JournalSans, sans-serif;
 font-family: Palatino, serif;
+xbackground: #333;
+xfont-size: 17px;
 letter-spacing: 1px;
 }
 
@@ -289,9 +295,21 @@ font-family: Palatino, serif;
 color: #666;
 }
 .articleDate a {
-color: #666;
-text-decoration: underline;
+  color: #666;
+  xtext-decoration: underline;
+  display: inline;
+  background: linear-gradient(0deg, #234 50%, transparent 0);
 }
+/*.articleDate a::before {
+  background-color: red;
+  outline: 1px solid red;
+  content: '';
+  position: absolute;
+  width: 100%;
+  border: 1px solid red;
+  left: 0px;
+  top: 0px;
+}*/
 .articleDate a:hover {
 color: #6BA8BB;
 }
@@ -335,19 +353,23 @@ summary {
 }
 #ghcList a {
   color: #666;
-  text-decoration: underline;
+  xtext-decoration: underline;
+
+  display: inline;
+  background: linear-gradient(0deg, #234 50%, transparent 0);
 }
 #ghcList a:hover {
   color: #6BA8BB;
+  text-decoration: none;
 }
 #ghcList > div {
-    margin-top: 24px;
+  margin-top: 24px;
   color: #666;
 }
 #ghcList p {
-    display: inline;
-    margin-left: 10px;
-    color: #666;
+  display: inline;
+  margin-left: 10px;
+  color: #666;
 }
 .ghcAdd {
 }
