@@ -1,55 +1,38 @@
-@font-face {
-  font-family: "JournalSans";
-  src: url("font/JournalSansC.otf") format("opentype");
-}
-@font-face {
-  font-family: "SchoolSoviet";
-  src: url("font/SchoolSoviet.otf") format("opentype");
-}
-@font-face {
-  font-family: "NewspaperSans";
-  src: url("font/NewspaperSansC.otf") format("opentype");
-}
-@font-face {
-  font-family: "School";
-  src: url("font/SCHOOLBC.OTF") format("opentype");
-}
-
 html {
 }
 
 p {
-margin: 0;
-line-height: 24px;
+  margin: 0;
+  line-height: 24px;
 }
 div {
-line-height: 24px;
+  line-height: 24px;
 }
 h1 {
-line-height: 48px;
-xtext-align: right;
+  line-height: 48px;
+  xtext-align: right;
 }
 
 body {
-margin: 0;
-font-size: 22px;
-color: #bfbbbb;
-background: #222;
-font-family: Palatino, serif;
-font-weight: 400;
+  margin: 0;
+  font-size: 22px;
+  color: #bfbbbb;
+  background: #222;
+  font-family: Palatino, serif;
+  font-weight: 400;
 }
 
 .wrap0 {
--webkit-backdrop-filter: saturate(50%) sepia(0%) contrast(70%) brightness(0.3) blur(30px);
-backdrop-filter: saturate(50%) sepia(0%) contrast(70%) brightness(0.3) blur(30px);
-xbackground-image: url(./scanlines.png);
+  -webkit-backdrop-filter: saturate(50%) sepia(0%) contrast(70%) brightness(0.3) blur(30px);
+  backdrop-filter: saturate(50%) sepia(0%) contrast(70%) brightness(0.3) blur(30px);
+  xbackground-image: url(./scanlines.png);
 }
 
 .wrap1 {
-margin: 0 auto;
-max-width: 650px;
-xbackdrop-filter: blur(60px);
-box-sizing: border-box; min-height: 100vh; /*100% height*/
+  margin: 0 auto;
+  max-width: 650px;
+  xbackdrop-filter: blur(60px);
+  box-sizing: border-box; min-height: 100vh; /*100% height*/
 }
 
 .wrap2 {
@@ -85,69 +68,25 @@ p {
   line-height: 120%;
   font-size: 22px;
 }
-.info {
-  font-family: JournalSans, School, serif;
-  font-size: 22px;
-}
 a {
-  color: #AB9239;
   color: #6BA8BB;
   text-decoration: none;
-
-/*  color: inherit;*/
-/*  display: inline;*/
-/*  background: linear-gradient(0deg, #234 50%, transparent 0);*/
 }
 a:hover {
   color: #6BA8BB;
   text-decoration: underline;
-/*  text-decoration: none;*/
 }
-.title {
-  font-family: NewspaperSans, sans-serif;
-  font-family: JournalSans, School, serif;
-  xfont-size: 32px;
-}
-
 .textBlock {
-margin-top: 24px;
-overflow-wrap: break-word;
+  margin-top: 24px;
+  overflow-wrap: break-word;
 }
 
 li > .textBlock {
-margin-top: 0;
+  margin-top: 0;
 }
 
 .textBlock img {
-max-width: 100%;
-}
-
-.textBlock i {
-font-style: normal;
-font-size: 18px;
-}
-.trackList {
-font-family: JournalSans, sans-serif;
-}
-.trackList a {
-text-decoration: none;
-}
-.trackList a:hover {
-text-decoration: underline;
-}
-
-.releaseInfo {
-font-family: School, serif;
-font-family: JournalSans, sans-serif;
-xcolor: #888;
-}
-.releaseInfo a {
-xcolor: #888;
-}
-
-.tagList {
-font-family: Palatino, serif;
-xtext-align: right;
+  max-width: 100%;
 }
 
 .flatList {
@@ -162,29 +101,29 @@ xtext-align: right;
   content: ", ";
 }
 .flatList li:last-child:after {
-    content: "";
+  content: "";
 }
 
 audio {
-width: 100%;
+  width: 100%;
 }
 
 .footer {
-margin-top: 50px;
-text-align: center;
-font-family: Palatino, serif;
-color: #666;
+  margin-top: 50px;
+  text-align: center;
+  font-family: Palatino, serif;
+  color: #666;
 }
 
 .filmList {
-list-style-type: none;
-padding: 0;
+  list-style-type: none;
+  padding: 0;
 }
 .filmList a {
-text-decoration: none;
+  text-decoration: none;
 }
 .filmList a:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
 .mainMenu a {
@@ -199,42 +138,43 @@ text-decoration: underline;
   xdisplay: inline-flex;
 }
 .mainMenu a:hover {
-background: #AB9239;
-background: #6BA8BB;
-color: #222;
+  background: #AB9239;
+  background: #6BA8BB;
+  color: #222;
 }
 
 .vkVideoPLayer {
-width: 100%;
+  width: 100%;
 }
 
 .ytVideoPLayer1 {
-width: 100%;
-height: 351px;
-display: block;
+  width: 100%;
+  height: 351px;
+  display: block;
 }
 .ytVideoPLayer2 {
-width: 100%;
-height: 351px;
+  width: 100%;
+  height: 351px;
 }
 
 .tagCat {
-margin-top: 24px;
+  margin-top: 24px;
 }
 .tagCat a {
-text-decoration: none;
+  text-decoration: none;
 }
 .tagCat a:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
 
 abbr, code {
-font-family: Palatino, serif;
+  font-family: Palatino, serif;
 }
 
+/* todo rename articleDate to smth like footer */
 .articleDate {
-font-family: Palatino, serif;
-color: #666;
+  font-family: Palatino, serif;
+  color: #666;
 }
 .articleDate a {
   color: #666;
@@ -248,15 +188,9 @@ color: #666;
 }
 
 .audioPlayer {
-xbackground: #AB9239;
-xcolor: #222;
-xline-height: 44px;
-}
-
-.name {
-xfont-weight: bold;
-font-family: JournalSans;
-background: #333;
+  xbackground: #AB9239;
+  xcolor: #222;
+  xline-height: 44px;
 }
 
 pre {
@@ -280,6 +214,14 @@ summary {
   cursor: pointer;
 }
 
+blockquote {
+  font-style: italic;
+  border-left: 8px solid #2a2a2a;
+  margin: 0;
+  padding-left: 20px;
+  color: #999;
+}
+
 /*github comments*/
 #ghcList * {
   font-family: Palatino, serif;
@@ -301,6 +243,4 @@ summary {
   display: inline;
   margin-left: 10px;
   color: #666;
-}
-.ghcAdd {
 }
