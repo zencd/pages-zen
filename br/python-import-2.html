@@ -9,6 +9,7 @@
     <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
     
     
+    
 
     <link rel="canonical" href="https://zencd.ru/br/python-import-2.html" />
     <script src="/br/static/ghc.js"></script>
@@ -57,24 +58,21 @@ padding-top: 350px;
 
 
 
-
-<div class="textBlock">Оказалось, что Питон умеет в т.с. транзитивныe импорты. И это не достоинство. Обнаружил, как и в <a href="python-import-mess.html">прошлый раз</a>, в ходе рефакторинга. Иначе не поверил бы, что это реально.</div>
-
+<p class="textBlock">Оказалось, что Питон умеет в т.с. транзитивныe импорты. И это не достоинство.
+Обнаружил, как и в <a href="python-import-mess.html">прошлый раз</a>, в ходе рефакторинга.
+Иначе не поверил бы, что это реально.</p>
 <pre class="textBlock">+------+    +------+    +------+
 | mod1 | &lt;- | mod2 | &lt;- | mod3 |
 +------+    +------+    +------+
 </pre>
-
-<div class="textBlock">Когда некий символ импортируется в модуль 2, то для других модулей этот символ становится доступен к импорту из модуля 2 как будто он был там <em>декларирован</em>. Ну да, давай добавим дополнительную связь между модулями, офигительная же идея; инкапсуляция по Монти Пайтону, лол.</div>
-
-<div class="textBlock">В нормальном окружении программист хочет другого:</div>
-
+<p class="textBlock">Когда некий символ импортируется в модуль 2, то для других модулей этот символ становится доступен к импорту из модуля 2 как будто он был там <em>декларирован</em>. Ну да, давай добавим дополнительную связь между модулями, офигительная же идея; инкапсуляция по Монти Пайтону, лол.</p><p class="textBlock">В нормальном окружении программист хочет другого:</p>
 <pre class="textBlock">+------+
 | mod1 | &lt;-- mod2
 |      | &lt;-- mod3
 +------+
 </pre>
 <h2>Верификация</h2>
+
 <div class="fileName">File: pytrans/mod1.py</div>
 
 <pre class="textBlock">class Foo: pass
@@ -91,10 +89,8 @@ padding-top: 350px;
 from mod2 import Foo as Foo2
 print(Foo1 is Foo2)
 </pre>
-
-<div class="textBlock">Результат:</div>
-
-<pre class="textBlock">> python3 mod3.py
+<p class="textBlock">Результат:</p>
+<pre class="textBlock">&gt; python3 mod3.py
 True
 </pre>
 

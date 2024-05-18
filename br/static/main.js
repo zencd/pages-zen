@@ -54,31 +54,46 @@
         return text.substring(i1 + startPattern.length, i2)
     }
     async function loadPage(url, doPushState) {
-        console.log('loadPage', url)
-        const resp = await fetch(url)
-        const text = await resp.text()
-        const pageContent = findSubstring(text, '<!-- pageContent begin -->', '<!-- pageContent end -->')
-        if (!pageContent) {
-            console.error("Failed loading " + url)
-            window.location.replace(url)
-            return
+        try {
+            console.log('loadPage', url)
+            const resp = await fetch(url)
+            const text = await resp.text()
+            if (resp.status >= 400) {
+                console.log('resp', resp)
+                if (typeof window.Toast !== undefined) {
+                    new window.Toast("Error code: " + resp.status, "#eb3b5a", 5000)
+                }
+            }
+            const pageContent = findSubstring(text, '<!-- pageContent begin -->', '<!-- pageContent end -->')
+            if (!pageContent) {
+                console.error("Failed loading " + url)
+                window.location.replace(url)
+                return
+            }
+            const title = findSubstring(text, '<title>', '</title>')
+            $pageContent.innerHTML = pageContent
+            if (title) {
+                document.title = title
+            }
+            if (doPushState) {
+                window.history.pushState({}, null, url);
+            }
+            setupInternalLinks($pageContent)
+            setupYoutubeVideoPlayerLinks($pageContent)
+            setupYoutubeAudioPlayerLinks($pageContent, window.g_uiPlayer)
+            const bgStyle = findSubstring(text, '<style id="pageSpecificStyle">', '</style>')
+            if (bgStyle) {
+                $pageSpecificStyle.innerText = bgStyle
+            }
+            tryLoadGithubComment();
+            //console.log('window.Toast', window.Toast)
+            //new window.Toast("Okay", "#00b894", 5000)
+        } catch (e) {
+            console.log(e)
+            if (typeof window.Toast !== undefined) {
+                new window.Toast("Error: " + e, "#eb3b5a", 5000)
+            }
         }
-        const title = findSubstring(text, '<title>', '</title>')
-        $pageContent.innerHTML = pageContent
-        if (title) {
-            document.title = title
-        }
-        if (doPushState) {
-            window.history.pushState({}, null, url);
-        }
-        setupInternalLinks($pageContent)
-        setupYoutubeVideoPlayerLinks($pageContent)
-        setupYoutubeAudioPlayerLinks($pageContent, window.g_uiPlayer)
-        const bgStyle = findSubstring(text, '<style id="pageSpecificStyle">', '</style>')
-        if (bgStyle) {
-            $pageSpecificStyle.innerText = bgStyle
-        }
-        tryLoadGithubComment();
     }
 
     window.onpopstate = (e) => {

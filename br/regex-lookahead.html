@@ -9,6 +9,7 @@
     <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
     
     
+    
 
     <link rel="canonical" href="https://zencd.ru/br/regex-lookahead.html" />
     <script src="/br/static/ghc.js"></script>
@@ -57,35 +58,28 @@ padding-top: 350px;
 
 
 
-
-<div class="textBlock">В <a href="regex-escape.html">предыдущей заметке</a> задача ставилась так: удалить все символы перед определенным символом. Оригинальное решение работает ожидаемо только для части символов: для доллара уже не сработает, а для открывающих скобок вобще свалится с исключением:</div>
-
+<p class="textBlock">В <a href="regex-escape.html">предыдущей заметке</a> задача ставилась так: удалить все символы перед определенным символом. Оригинальное решение работает ожидаемо только для части символов: для доллара уже не сработает, а для открывающих скобок вобще свалится с исключением:</p>
 <pre class="textBlock">String baeldungIncorrect(String input, String find) {
-  return find + input.replaceAll(".*" + find, "");
+  return find + input.replaceAll(&quot;.*&quot; + find, &quot;&quot;);
 }
 </pre>
-
-<div class="textBlock">Это ошибка. Исправим:</div>
-
+<p class="textBlock">Это ошибка. Исправим:</p>
 <pre class="textBlock">String baeldungFixed(String input, String find) {
-  return find + input.replaceAll(".*" + Pattern.quote(find), "");
+  return find + input.replaceAll(&quot;.*&quot; + Pattern.quote(find), &quot;&quot;);
 }
 </pre>
-
-<div class="textBlock">Сначала вырезать символ, а потом его же добавлять обратно — получается довольно глупо. Я бы сделал это через единственную операцию замены, используя regex lookahead:</div>
-
+<p class="textBlock">Сначала вырезать символ, а потом его же добавлять обратно - получается довольно глупо.
+Я бы сделал это через единственную операцию замены, используя regex lookahead:</p>
 <pre class="textBlock">String lookahead(String input, String find) {
-  return input.replaceAll(".*(?=" + Pattern.quote(find) + ")", "");
+  return input.replaceAll(&quot;.*(?=&quot; + Pattern.quote(find) + &quot;)&quot;, &quot;&quot;);
 }
 </pre>
-
-<div class="textBlock">Верификация:</div>
-
+<p class="textBlock">Верификация:</p>
 <pre class="textBlock">@Test
 public void test() {
-  assertEquals("$", baeldungIncorrect("12$34$56", "$"));
-  assertEquals("$56", baeldungFixed("12$34$56", "$"));
-  assertEquals("$56", lookahead("12$34$56", "$"));
+  assertEquals(&quot;$&quot;, baeldungIncorrect(&quot;12$34$56&quot;, &quot;$&quot;));
+  assertEquals(&quot;$56&quot;, baeldungFixed(&quot;12$34$56&quot;, &quot;$&quot;));
+  assertEquals(&quot;$56&quot;, lookahead(&quot;12$34$56&quot;, &quot;$&quot;));
 }
 </pre>
 

@@ -9,6 +9,7 @@
     <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
     
     
+    
 
     <link rel="canonical" href="https://zencd.ru/br/embed-gist.html" />
     <script src="/br/static/ghc.js"></script>
@@ -57,43 +58,35 @@ padding-top: 350px;
 
 
 
-
-<div class="textBlock">По задумке гитхаба, гисты встраиваются так:</div>
-
-<pre class="textBlock">&lt;script src="https://gist.github.com/zencd/df0a4f1f50b69c7ff7e24220ec2e10ee.js">&lt;/script>
+<p class="textBlock">По задумке гитхаба, гисты встраиваются так:</p>
+<pre class="textBlock">&lt;script src=&quot;https://gist.github.com/zencd/df0a4f1f50b69c7ff7e24220ec2e10ee.js&quot;&gt;&lt;/script&gt;
 </pre>
 
 <div class="textBlock"><script async src="https://gist.github.com/zencd/df0a4f1f50b69c7ff7e24220ec2e10ee.js"></script>
 </div>
-
-<div class="textBlock">Но мы обложим этот скрипт невидимым дивом:</div>
-
-<pre class="textBlock">&lt;div style="display: none;">
-&lt;script src="https://gist.github.com/zencd/df0a4f1f50b69c7ff7e24220ec2e10ee.js">&lt;/script>
-&lt;!-- инфа с гитхаба добавится сюда -->
-&lt;/div>
+<p class="textBlock">Но мы обложим этот скрипт невидимым дивом:</p>
+<pre class="textBlock">&lt;div style=&quot;display: none;&quot;&gt;
+&lt;script src=&quot;https://gist.github.com/zencd/df0a4f1f50b69c7ff7e24220ec2e10ee.js&quot;&gt;&lt;/script&gt;
+&lt;!-- инфа с гитхаба добавится сюда --&gt;
+&lt;/div&gt;
 </pre>
+<p class="textBlock">При этом скрипт не генерит <code>iframe</code> (хотя мог бы), а добавляет свои ноды прямо по месту работы. Это позволяет нам прочитать <code>DOM</code> и создать новые ноды по месту новой прописки: <code>#infoFromGist</code>. И, кстати, теперь можно в <code>HTML</code>.</p>
+<pre class="textBlock">&lt;!-- новое место для информации с гитхаба --&gt;
+&lt;div id=&quot;infoFromGist&quot;&gt;&lt;/div&gt;
 
-<div class="textBlock">При этом скрипт не генерит <abbr>iframe</abbr> (хотя мог бы), а добавляет свои ноды прямо по месту работы. Это позволяет нам прочитать <abbr>DOM</abbr> и создать новые ноды по месту новой прописки: <abbr>#infoFromGist</abbr>. И, кстати, теперь можно в <abbr>HTML</abbr>.</div>
-
-<pre class="textBlock">&lt;!-- новое место для информации с гитхаба -->
-&lt;div id="infoFromGist">&lt;/div>
-
-&lt;script>
+&lt;script&gt;
 (function() {
-    const $infoFromGist = document.querySelector('#infoFromGist')
-    var srcLines = document.querySelectorAll('.js-file-line');
+    const $infoFromGist = document.querySelector(&#x27;#infoFromGist&#x27;)
+    var srcLines = document.querySelectorAll(&#x27;.js-file-line&#x27;);
     const lines = [];
     [].forEach.call(srcLines, function (line) {
         lines.push(line.innerText)
     });
-    $infoFromGist.innerHTML = lines.join('\n')
+    $infoFromGist.innerHTML = lines.join(&#x27;\n&#x27;)
 })();
-&lt;/script>
+&lt;/script&gt;
 </pre>
-
-<div class="textBlock">Минус: оригинальный скрипт — блокирующий, так что рендеринг нашей страницы может и будет задерживаться время от времени.</div>
-
+<p class="textBlock">Минус: оригинальный скрипт - блокирующий, так что рендеринг нашей страницы может и будет задерживаться время от времени.</p>
 
 
 

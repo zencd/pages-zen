@@ -9,6 +9,7 @@
     <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
     
     
+    
 
     <link rel="canonical" href="https://zencd.ru/br/csv-to-markdown.html" />
     <script src="/br/static/ghc.js"></script>
@@ -57,15 +58,12 @@ padding-top: 350px;
 
 
 
-
-<div class="textBlock">Понадобилось сконвертировать экселевскую таблицу в маркдаун для блога. По этому поводу нашлась хорошая тулза:</div>
-
+<p class="textBlock">Понадобилось сконвертировать экселевскую таблицу в маркдаун для блога.
+По этому поводу нашлась хорошая тулза:</p>
 <pre class="textBlock">npm install -g csv-to-markdown-table
 </pre>
-
-<div class="textBlock">Использование:</div>
-
-<pre class="textBlock">> csv-to-markdown-table --delim :tab
+<p class="textBlock">Использование:</p>
+<pre class="textBlock">&gt; csv-to-markdown-table --delim :tab
 
 Reading from stdin... (press Ctrl+D at the start of a line to finish)
 CSV Delimiter: \t (tab) Headers: false
@@ -80,14 +78,10 @@ CSV Delimiter: \t (tab) Headers: false
 | 110 | Core i3-13100F |
 | 99  | Ryzen 5 5500   |
 </pre>
-
-<div class="textBlock">Или сразу в буфер обмена:</div>
-
-<pre class="textBlock">> csv-to-markdown-table | pbcopy
+<p class="textBlock">Или сразу в буфер обмена:</p>
+<pre class="textBlock">&gt; csv-to-markdown-table | pbcopy
 </pre>
-
-<div class="textBlock">Правда, в таком случае в буфер попадает две лишние строки "Reading from stdin". Автору следовало писать их в stderr. А так работает. Хоть и nodejs :)</div>
-
+<p class="textBlock">Правда, в таком случае в буфер попадает две лишние строки &quot;Reading from stdin&quot;. Автору следовало писать их в stderr. А так работает. Хоть и nodejs :)</p>
 
 
 

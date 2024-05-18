@@ -9,6 +9,7 @@
     <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
     
     
+    
 
     <link rel="canonical" href="https://zencd.ru/br/sparse-clone.html" />
     <script src="/br/static/ghc.js"></script>
@@ -57,50 +58,38 @@ padding-top: 350px;
 
 
 
-
-<div class="textBlock">Читаю официальные <a href="https://cloud.google.com/appengine/docs/flexible/python/create-app">доки</a> по <abbr>Google App Engine</abbr>, и там, чтобы запустить hello world, предлагают совершить следующее:</div>
-
-<pre class="textBlock">> git clone https://github.com/GoogleCloudPlatform/python-docs-samples
-> du -sh python-docs-samples
+<p class="textBlock">Читаю официальные <a href="https://cloud.google.com/appengine/docs/flexible/python/create-app">доки</a> по <code>Google App Engine</code>, и там, чтобы запустить hello world, предлагают совершить следующее:</p>
+<pre class="textBlock">&gt; git clone https://github.com/GoogleCloudPlatform/python-docs-samples
+&gt; du -sh python-docs-samples
 479M    python-docs-samples
-> cd python-docs-samples/appengine/flexible/hello_world
-> du -sh .
+&gt; cd python-docs-samples/appengine/flexible/hello_world
+&gt; du -sh .
  31M    .
-> wc -l *
+&gt; wc -l *
      138 total
 </pre>
-
-<div class="textBlock">Ради 138 строк выкачать пол-гигабайта, нормально.</div>
-
-<div class="textBlock">Теперь то же самое через sparse checkout:</div>
-
-<pre class="textBlock">> cat git-clone-sparse
-REPO_URL="$1"
-SUB_DIR="$2"
-REPO_NAME=$(basename "$REPO_URL")
+<p class="textBlock">Ради 138 строк выкачать пол-гигабайта, нормально.</p><p class="textBlock">Теперь то же самое через sparse checkout:</p>
+<pre class="textBlock">&gt; cat git-clone-sparse
+REPO_URL=&quot;$1&quot;
+SUB_DIR=&quot;$2&quot;
+REPO_NAME=$(basename &quot;$REPO_URL&quot;)
 set -xe
-git clone -n --depth=1 --filter=tree:0 "$REPO_URL"
-cd "$REPO_NAME"
-git sparse-checkout set --no-cone "$SUB_DIR"
+git clone -n --depth=1 --filter=tree:0 &quot;$REPO_URL&quot;
+cd &quot;$REPO_NAME&quot;
+git sparse-checkout set --no-cone &quot;$SUB_DIR&quot;
 git checkout
-cd "$SUB_DIR"
+cd &quot;$SUB_DIR&quot;
 pwd
 
-> git-clone-sparse \
-  'https://github.com/GoogleCloudPlatform/python-docs-samples' \
-  'appengine/flexible/hello_world'
+&gt; git-clone-sparse \
+  &#x27;https://github.com/GoogleCloudPlatform/python-docs-samples&#x27; \
+  &#x27;appengine/flexible/hello_world&#x27;
 </pre>
-
-<div class="textBlock">Результат:</div>
-
-<pre class="textBlock">> du -sh python-docs-samples
+<p class="textBlock">Результат:</p>
+<pre class="textBlock">&gt; du -sh python-docs-samples
 984K    python-docs-samples
 </pre>
-
-<div class="textBlock">Пятьсот мегабайт ужались до одного. Неплохо, но может можно ещё лучше?</div>
-
-<div class="textBlock">P.S. Я так подозреваю, это ещё и хороший способ выкачать большой репозиторий целиком, но при плохой связи. Потому что если что-то идёт не так, то <abbr>clone</abbr> откатывается полностью.</div>
-
+<p class="textBlock">Пятьсот мегабайт ужались до одного. Неплохо, но может можно ещё лучше?</p><p class="textBlock">P.S. Я так подозреваю, это ещё и хороший способ выкачать большой репозиторий целиком, но при плохой связи. Потому что если что-то идёт не так, то <code>clone</code> откатывается полностью.</p>
 
 
 
