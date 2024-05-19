@@ -18,7 +18,7 @@ body {
   font-size: 22px;
   color: #bfbbbb;
   background: #222;
-  font-family: Palatino, serif;
+  font-family: Palatino, Cambria Math, serif;
   font-weight: 400;
 }
 
@@ -111,7 +111,7 @@ audio {
 .footer {
   margin-top: 50px;
   text-align: center;
-  font-family: Palatino, serif;
+  font-family: Palatino, Cambria Math, serif;
   color: #666;
 }
 
@@ -168,12 +168,12 @@ audio {
 }
 
 abbr, code {
-  font-family: Palatino, serif;
+  font-family: Palatino, Cambria Math, serif;
 }
 
 /* todo rename articleDate to smth like footer */
 .articleDate {
-  font-family: Palatino, serif;
+  font-family: Palatino, Cambria Math, serif;
   color: #666;
 }
 .articleDate a {
@@ -224,7 +224,7 @@ blockquote {
 
 /*github comments*/
 #ghcList * {
-  font-family: Palatino, serif;
+  font-family: Palatino, Cambria Math, serif;
 }
 #ghcList a {
   color: #666;
