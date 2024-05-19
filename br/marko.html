@@ -3,13 +3,15 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tag hardware - Bombing Review</title>
+    <title>Парсер markdown на Питоне - Bombing Review</title>
     <link rel="stylesheet" type="text/css" href="/br/static/main.css"/>
     <link rel="stylesheet" type="text/css" href="/br/static/player-bar.css" />
     <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
     
     
-    <link rel="canonical" href="https://zencd.ru/br/tags/hardware.html" />
+    
+
+    <link rel="canonical" href="https://zencd.ru/br/marko.html" />
     <script src="/br/static/ghc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
     <style id="pageSpecificStyle">
@@ -18,7 +20,7 @@
 body {
 background:
     linear-gradient(to bottom, rgb(0, 0, 0, 0.0) 0%, rgb(0, 0, 0, 0.0) 100%),
-    url(/br/imgtag/hardware.webp) no-repeat center center fixed,
+    url(/br/imgtag/python.webp) no-repeat center center fixed,
     url() no-repeat center center fixed;
 background-size: auto, cover, cover;
 }
@@ -26,7 +28,7 @@ background-size: auto, cover, cover;
 background:
   linear-gradient(to bottom, rgb(34, 34, 34, 0) 0px, rgb(34, 34, 34, 0.8) 250px, rgb(34, 34, 34, 0.9) 300px, rgb(34, 34, 34, 1) 350px),
   url(/br/static/scanlines.png),
-  url(/br/imgtag/hardware.webp) no-repeat top center fixed,
+  url(/br/imgtag/python.webp) no-repeat top center fixed,
   url() no-repeat top center fixed;
 background-size: 100%, auto, 650px auto, 650px auto;
 padding-top: 350px;
@@ -50,19 +52,51 @@ padding-top: 350px;
             <!-- pageContent begin -->
             
 
-<h1>Hardware: 3</h1>
+
+
+<h1 data-slug="marko" data-ghc-id="">Парсер markdown на Питоне</h1>
 
 
 
-<ol class="filmList">
+<p class="textBlock">Пригодный парсер разметки markdown — <a href="https://marko-py.readthedocs.io/en/latest/">Marko</a>.
+Распарсить — это, само собой, не самоцель, дальше его надо было оттранслировать в HTML.
+Для этого есть готовый класс <code>HTMLRenderer</code>, и остаётся только переопределить некоторые детали его поведения (ну вот, а говорили что ООП не нужно). В примере ниже на параграфы навешивается свой css-класс.</p>
+<pre class="textBlock">import unittest
+import marko
 
-    <li>2024.05 <a href="/br/pixel-sux.html">Гугл пиксел сосед</a>
+class MyHtmlRenderer(marko.HTMLRenderer):
+  def render_paragraph(self, element):
+    text = self.render_children(element)
+    return f&#x27;&lt;p class=&quot;para&quot;&gt;{text}&lt;/p&gt;&#x27;
 
-    <li>2024.05 <a href="/br/best-cpu.html">Лучшие процессоры по производительности на рубль</a>
+class MyTestCase(unittest.TestCase):
+  def test_1(self):
+    translate = marko.Markdown(renderer=MyHtmlRenderer)
+    markdown = &#x27;hello&#x27;
+    actual = translate(markdown)
+    self.assertEqual(
+      &#x27;&lt;p class=&quot;para&quot;&gt;hello&lt;/p&gt;&#x27;,
+      actual)
+</pre>
+<p class="textBlock">Кстати, дизайн там такой себе — сплошные манипуляции со строками; в мире джавы это была бы дичь.</p><p class="textBlock">Ну и куда без callable головного мозга. Чтобы получить AST-дерево, делаем раз:</p>
+<pre class="textBlock">Markdown().parse(&#x27;hello&#x27;)
+</pre>
+<p class="textBlock">А чтобы оттранслировать в другой язык — делаем два:</p>
+<pre class="textBlock">Markdown()(&#x27;hello&#x27;)
+</pre>
+<p class="textBlock">Просто напоминаю, что когда ты ставишь точку, то редактор подсказывает варианты, а то что перед нами callable нужно заранее <em>знать</em>. Да и как ты догадаешься что именно делает каллабл — парсит или транслирует? В случае с вызовом функции такой проблемы нет. Зачем форсить такие неочевидности — совершенно непонятно; какое-то безумие.</p>
 
-    <li>2022.10 <a href="/br/pixel-ordered.html">Google Pixel 7</a>
 
-</ol>
+
+<p class="textBlock articleDate">
+    2024.05.18
+    in
+    
+    <a href="/br/tags/python.html">python</a>
+    
+</p>
+
+
 
 
             <!-- pageContent end -->

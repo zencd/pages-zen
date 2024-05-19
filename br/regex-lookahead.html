@@ -68,7 +68,7 @@ padding-top: 350px;
   return find + input.replaceAll(&quot;.*&quot; + Pattern.quote(find), &quot;&quot;);
 }
 </pre>
-<p class="textBlock">Сначала вырезать символ, а потом его же добавлять обратно - получается довольно глупо.
+<p class="textBlock">Сначала вырезать символ, а потом его же добавлять обратно — получается довольно глупо.
 Я бы сделал это через единственную операцию замены, используя regex lookahead:</p>
 <pre class="textBlock">String lookahead(String input, String find) {
   return input.replaceAll(&quot;.*(?=&quot; + Pattern.quote(find) + &quot;)&quot;, &quot;&quot;);
