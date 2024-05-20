@@ -71,10 +71,17 @@ p {
 a {
   color: #6BA8BB;
   text-decoration: none;
+
+/*  color: #bfbbbb;*/
+/*  background: linear-gradient(0deg, #234 50%, transparent 0);*/
+/*  background: linear-gradient(0deg, #245 50%, transparent 0);*/
 }
 a:hover {
   color: #6BA8BB;
   text-decoration: underline;
+
+/*  background: linear-gradient(0deg, #245 50%, transparent 0);*/
+/*  text-decoration: none;*/
 }
 .textBlock {
   margin-top: 24px;
@@ -170,7 +177,7 @@ audio {
 abbr, code {
   font-family: Palatino, serif;
   font-family: monospace, Palatino, serif;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 /* todo rename articleDate to smth like footer */
