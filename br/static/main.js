@@ -86,8 +86,7 @@
                 $pageSpecificStyle.innerText = bgStyle
             }
             tryLoadGithubComment();
-            //console.log('window.Toast', window.Toast)
-            //new window.Toast("Okay", "#00b894", 5000)
+            tryLoadTelegramComments();
         } catch (e) {
             console.log(e)
             if (typeof window.Toast !== undefined) {
@@ -103,4 +102,5 @@
     setupInternalLinks(document)
     setupYoutubeVideoPlayerLinks(document)
     tryLoadGithubComment()
+    tryLoadTelegramComments()
 })();
