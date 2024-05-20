@@ -178,6 +178,7 @@ abbr, code {
   font-family: Palatino, serif;
   font-family: monospace, Palatino, serif;
   font-size: 18px;
+  color: #999;
 }
 
 /* todo rename articleDate to smth like footer */
