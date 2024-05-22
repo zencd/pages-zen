@@ -59,10 +59,9 @@ h1 {
   font-weight: normal;
 }
 h2 {
-  font-family: NewspaperSans, sans-serif;
+  font-family: "Amatic SC", sans-serif;
   color: #945744;
-  word-spacing: -5px;
-  xletter-spacing: 0px;
+  font-size: 36px;
 }
 p {
   line-height: 120%;

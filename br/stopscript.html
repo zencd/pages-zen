@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Загружаем список всех игор со стима на стопгейм одним скриптом - Bombing Review</title>
+    <link rel="stylesheet" type="text/css" href="/br/static/main.css"/>
+    <link rel="stylesheet" type="text/css" href="/br/static/player-bar.css" />
+    <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
+
+    <meta property="og:type" content="website" />
+<!--<meta property="og:title" content="title1" />-->
+    <meta property="og:url" content="https://zencd.ru/br/stopscript.html" />
+<!--<meta property="og:image" content="..." />-->
+<!--<link rel="alternate" type="application/rss+xml" title="..." href="https://..." />-->
+
+    
+    
+    
+
+    <link rel="canonical" href="https://zencd.ru/br/stopscript.html" />
+    <script src="/br/static/ghc.js"></script>
+    <script src="/br/static/tgc.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
+    <style id="pageSpecificStyle">
+
+
+body {
+background:
+    linear-gradient(to bottom, rgb(0, 0, 0, 0.0) 0%, rgb(0, 0, 0, 0.0) 100%),
+    url(/br/img/stopscript.webp) no-repeat center center fixed,
+    url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAAeAB4DAREAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAABgcEBQgJ/8QALBAAAgEDAwMCBQUBAAAAAAAAAQIDBAURABIhBjFBE1EHFCJxgQgVMmGh0f/EABkBAAIDAQAAAAAAAAAAAAAAAAUGBAcIAv/EAC8RAAEDAgQEBQIHAAAAAAAAAAECAxEABAUhMUEGEhNRByJCcaGBkRRhYsHR8PH/2gAMAwEAAhEDEQA/AOetksT1tQKWLdUJuBIA28nPYH7d9MTTRJjahrb4KgDrTLoPhGk0OFt1S8qjLLkLt+5bAz/WiHIw3kRTthXDN1izfUt2yR3Jih3qfo2rtKvTBZIjEu50dAAEz3yCQ3PtrlTSXEy3QTG8JuMFd6V0mD8fegKq+aiYqiR/ScEsOc8/80OeQtBgCgzTyXBIo+6Ehga/W5qiNljE0MkgaMjciyElducHjIwCPbRm2ZCxlrS5dXH4dxKl6SJ9iRNahW1yG2O9VGaN2i9UMFwefcHkaCG5ClGtqYZaNiwShqACkZj2pKdTVEF1rpaSef10pqGochUP0yEhUDH25OB5I0ewpAcnmGxNZ48XL1TSWmkLnzARvlJOftSfuSGGpdoqYtk4YkBucnUe8Ryr8oqvrJwFEKNMD4YWf9wukQ9MKCuMbCvk/jRTDEAmljiO4Lbef7U0q7rq+V1zqKee9yT20D0FLgOBHHGFyCeecf7oFfMtuXyg2Mp/2tN+HF/f2XDNuLxwyEaHOBqB3yECrW/fCSLovpSW5VdY9ZW3lIKmfcm1YVKblhXb3ALkk55/GnSyw1NkxrJMfT8qybxJx+7xhjalBPIhsqCRMz5oKjkIkDIRl3rPV8WKCokQ00alWUYEe3wdBLuEqiKZbNanEgz/AHKoVv6pnghFBbYflaaVcSsDmaYZzhn8D3UDnyT20IN+sJ5W8h808Ybwuwq5S/enqEaCISPpuferml61rojNTISXdNrsyj+A3EAe3AwdRkOwZqyE3ym0lsdvgTl9taKLL+oy62Pp9ei+sqCS/WhFEVDP6uyro1HAj3HIljAPAbDL2BxgaY7HG1sp6Tw5k7dx/IqhOKPD22uL04lhiuk4ZKhHlUdz+kneMidpzqh6vqLDVU0NTbKSqWoqhDOzzMAqRbGCoqjuSQSST4AHnUS86zl0XJAa5RA9RO5J2A0AGuZJ0A5w4NNWnRIJeClSfSBsANSTqSYjIAak/wD/2Q==) no-repeat center center fixed;
+background-size: auto, cover, cover;
+}
+.wrap1 {
+background:
+  linear-gradient(to bottom, rgb(34, 34, 34, 0) 0px, rgb(34, 34, 34, 0.8) 250px, rgb(34, 34, 34, 0.9) 300px, rgb(34, 34, 34, 1) 350px),
+  url(/br/static/scanlines.png),
+  url(/br/img/stopscript.webp) no-repeat top center fixed,
+  url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAAeAB4DAREAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAABgcEBQgJ/8QALBAAAgEDAwMCBQUBAAAAAAAAAQIDBAURABIhBjFBE1EHFCJxgQgVMmGh0f/EABkBAAIDAQAAAAAAAAAAAAAAAAUGBAcIAv/EAC8RAAEDAgQEBQIHAAAAAAAAAAECAxEABAUhMUEGEhNRByJCcaGBkRRhYsHR8PH/2gAMAwEAAhEDEQA/AOetksT1tQKWLdUJuBIA28nPYH7d9MTTRJjahrb4KgDrTLoPhGk0OFt1S8qjLLkLt+5bAz/WiHIw3kRTthXDN1izfUt2yR3Jih3qfo2rtKvTBZIjEu50dAAEz3yCQ3PtrlTSXEy3QTG8JuMFd6V0mD8fegKq+aiYqiR/ScEsOc8/80OeQtBgCgzTyXBIo+6Ehga/W5qiNljE0MkgaMjciyElducHjIwCPbRm2ZCxlrS5dXH4dxKl6SJ9iRNahW1yG2O9VGaN2i9UMFwefcHkaCG5ClGtqYZaNiwShqACkZj2pKdTVEF1rpaSef10pqGochUP0yEhUDH25OB5I0ewpAcnmGxNZ48XL1TSWmkLnzARvlJOftSfuSGGpdoqYtk4YkBucnUe8Ryr8oqvrJwFEKNMD4YWf9wukQ9MKCuMbCvk/jRTDEAmljiO4Lbef7U0q7rq+V1zqKee9yT20D0FLgOBHHGFyCeecf7oFfMtuXyg2Mp/2tN+HF/f2XDNuLxwyEaHOBqB3yECrW/fCSLovpSW5VdY9ZW3lIKmfcm1YVKblhXb3ALkk55/GnSyw1NkxrJMfT8qybxJx+7xhjalBPIhsqCRMz5oKjkIkDIRl3rPV8WKCokQ00alWUYEe3wdBLuEqiKZbNanEgz/AHKoVv6pnghFBbYflaaVcSsDmaYZzhn8D3UDnyT20IN+sJ5W8h808Ybwuwq5S/enqEaCISPpuferml61rojNTISXdNrsyj+A3EAe3AwdRkOwZqyE3ym0lsdvgTl9taKLL+oy62Pp9ei+sqCS/WhFEVDP6uyro1HAj3HIljAPAbDL2BxgaY7HG1sp6Tw5k7dx/IqhOKPD22uL04lhiuk4ZKhHlUdz+kneMidpzqh6vqLDVU0NTbKSqWoqhDOzzMAqRbGCoqjuSQSST4AHnUS86zl0XJAa5RA9RO5J2A0AGuZJ0A5w4NNWnRIJeClSfSBsANSTqSYjIAak/wD/2Q==) no-repeat top center fixed;
+background-size: 100%, auto, 650px auto, 650px auto;
+padding-top: 350px;
+}
+
+
+    </style>
+</head>
+<body style="background-color: #222;" data-devel="false" data-site-code="itb">
+
+<div class="mainMenu" style="position: fixed; top: 0; left: 0; height: 40px; line-height: 40px; z-index: 1000; width: 100%; text-align: center;">
+    <a href="/br/">BOMBING REVIEW</a>
+    <a href="/br/tags/">TAGS</a>
+    <a href="/br/rss.xml">RSS</a>
+</div>
+
+<div class="wrap0">
+    <div class="wrap1">
+        <div class="wrap2">
+            <div id="pageContent">
+            <!-- pageContent begin -->
+            
+
+
+
+<h1 data-slug="stopscript" data-ghc-id="" data-tgc-channel="" data-tgc-post="">Загружаем список всех игор со стима на стопгейм одним скриптом</h1>
+
+
+
+<p class="textBlock">Написал скрипт переноса списка игр со Стима на Стопгейм.
+Данные со стима выгружаются в CSV через тулзу <a href="https://www.lorenzostanco.com/lab/steam/">lorenzostanco</a>.
+Загрузка работает как нижеследующий JS, будучи вбитым в дев-консоль браузера; используется внутренний API SG.</p><p class="textBlock"><a href="https://gist.github.com/zencd/adc261db3f7ad36863766c9ed2a5e00c">The Скрипт</a>.</p>
+
+
+
+<p class="textBlock articleDate">
+    2024.05.22
+    in
+    
+    <a href="/br/tags/tools.html">tools</a>
+    
+</p>
+
+
+
+<div id="tgComments"></div>
+
+
+            <!-- pageContent end -->
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div id="video-player" style="display: none;"></div>
+<div id="player-bar" class="player-bar" style="display: none;"
+     data-button-play="/br/static/images/play.svg"
+     data-button-pause="/br/static/images/pause.svg"
+     data-button-loader="/br/static/images/loader.svg"
+>
+  <div class="player-bar-seek">
+    <div class="player-bar-progress">
+    </div>
+    <div class="player-bar-title" style=""></div>
+  </div>
+  <div class="player-bar-controls">
+    <img src="" class="play-button"><img src="/br/static/images/close.svg" class="close-button">
+  </div>
+</div>
+
+
+<script async src="/br/static/main.js"></script>
+<script src="/br/static/audio-player-core.js"></script>
+<script src="/br/static/audio-player-ui.js"></script>
+<!--<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>-->
+
+<script>
+const books = [
+  {
+    title: "Old Man's War",
+    author: {
+      firstName: 'John',
+      lastName: 'Scalzi'
+    }
+  },
+  {
+    title: 'The Lock Artist',
+    author: {
+      firstName: 'Steve',
+      lastName: 'Hamilton'
+    }
+  }
+]
+
+// 2. Set up the Fuse instance
+//const fuse = new Fuse(books, {keys: ['title', 'author.firstName']})
+//console.log('fuse', fuse)
+//var res = fuse.search('jon')
+//console.log('res', res)
+</script>
+
+
+<!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(97301289, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/97301289" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
+
+
+</body>
+</html>
