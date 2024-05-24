@@ -66,13 +66,14 @@ padding-top: 350px;
 
 
 
-<p class="textBlock">Upscaler для командной строки: удобно что не надо никакие сайты посещать.</p><ol>
+<p class="textBlock">Если можно увеличить изображение в уютной командной строке, то кто захочет посещать какие-то левые сайты?
+Да никто, конечно же.</p><ol>
 <li>
-<p class="textBlock">скачиваем <a href="https://github.com/xinntao/Real-ESRGAN?tab=readme-ov-file#portable-executable-files-ncnn">готовый бинарь</a> чтобы не трахаться с зависимостями питона; там windows, ubuntu и macos; модели уже внутри.</p></li>
+<p class="textBlock">Скачиваем готовый бинарь <a href="https://github.com/xinntao/Real-ESRGAN?tab=readme-ov-file#portable-executable-files-ncnn">Real-ESRGAN</a>, чтобы не трахаться с зависимостями питона; там windows, ubuntu и macos; модели уже внутри.</p></li>
 <li>
-<p class="textBlock">указываем опцию <code>-m</code>, иначе жди segfault.</p></li>
+<p class="textBlock">Указываем опцию <code>-m</code>, иначе жди segfault.</p></li>
 </ol>
-<p class="textBlock">Итог ниже, выдаёт версии два увеличенных изображения: x2 и x4.</p>
+<p class="textBlock">Итог ниже, выдаёт два увеличенных изображения: x2 и x4.</p>
 <div class="fileName">File: upscaleimage.sh</div>
 
 <pre class="textBlock">#!/bin/bash
