@@ -3,20 +3,22 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bombing Review</title>
+    <title>Редактируем видео из командной строки - Bombing Review</title>
     <link rel="stylesheet" type="text/css" href="/br/static/main.css"/>
     <link rel="stylesheet" type="text/css" href="/br/static/player-bar.css" />
     <link rel="shortcut icon" type="image/png" href="/br/static/favicon.png"/>
 
     <meta property="og:type" content="website" />
 <!--<meta property="og:title" content="title1" />-->
-    <meta property="og:url" content="https://zencd.ru/br/index.html" />
+    <meta property="og:url" content="https://zencd.ru/br/video-editing.html" />
 <!--<meta property="og:image" content="..." />-->
 <!--<link rel="alternate" type="application/rss+xml" title="..." href="https://..." />-->
 
     
     
-    <link rel="canonical" href="https://zencd.ru/br/index.html" />
+    
+
+    <link rel="canonical" href="https://zencd.ru/br/video-editing.html" />
     <script src="/br/static/ghc.js"></script>
     <script src="/br/static/tgc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
@@ -26,15 +28,17 @@
 body {
 background:
     linear-gradient(to bottom, rgb(0, 0, 0, 0.0) 0%, rgb(0, 0, 0, 0.0) 100%),
-    url(/br/static/images/blue_explosion.jpg) no-repeat center center fixed;
-background-size: auto, cover;
+    url(/br/imgtag/automation.webp) no-repeat center center fixed,
+    url() no-repeat center center fixed;
+background-size: auto, cover, cover;
 }
 .wrap1 {
 background:
   linear-gradient(to bottom, rgb(34, 34, 34, 0) 0px, rgb(34, 34, 34, 0.8) 250px, rgb(34, 34, 34, 0.9) 300px, rgb(34, 34, 34, 1) 350px),
   url(/br/static/scanlines.png),
-  url(/br/static/images/blue_explosion.jpg) no-repeat top center fixed;
-background-size: 100%, auto, 650px auto;
+  url(/br/imgtag/automation.webp) no-repeat top center fixed,
+  url() no-repeat top center fixed;
+background-size: 100%, auto, 650px auto, 650px auto;
 padding-top: 350px;
 }
 
@@ -58,61 +62,53 @@ padding-top: 350px;
 
 
 
-<h1>All articles: 24</h1>
-
-<ul class="filmList">
-
-    <li>2024.05 <a href="/br/video-editing.html">Редактируем видео из командной строки</a>
-
-    <li>2024.05 <a href="/br/upscale-cli.html">Апскейл изображений дома</a>
-
-    <li>2024.05 <a href="/br/stopscript.html">Загружаем список всех игор со стима на стопгейм одним скриптом</a>
-
-    <li>2024.05 <a href="/br/telegram-comments.html">Динамическая загрузка комментариев с Телеграмма</a>
-
-    <li>2024.05 <a href="/br/ram-growth.html">В смартфонах стало больше ОЗУ</a>
-
-    <li>2024.05 <a href="/br/marko.html">Парсер markdown на Питоне</a>
-
-    <li>2024.05 <a href="/br/idea-eap.html">Новый IDEA EAP</a>
-
-    <li>2024.05 <a href="/br/git-meaning.html">А что git значит для вас?</a>
-
-    <li>2024.05 <a href="/br/livejournal.html">ЖЖ социален, а тг нет</a>
-
-    <li>2024.05 <a href="/br/embed-gist.html">Больше динамики на статическом сайте через gist</a>
-
-    <li>2024.05 <a href="/br/github-comments.html">Система комментариев на основе Github issues</a>
-
-    <li>2024.05 <a href="/br/python-import-2.html">Питон против импортов №2</a>
-
-    <li>2024.05 <a href="/br/pixel-sux.html">Гугл пиксел сосед</a>
-
-    <li>2024.05 <a href="/br/csv-to-markdown.html">Конвертер csv в таблицу markdown</a>
-
-    <li>2024.05 <a href="/br/best-cpu.html">Лучшие процессоры по производительности на рубль</a>
-
-    <li>2024.05 <a href="/br/python-import-mess.html">Питон против импортов</a>
-
-    <li>2024.05 <a href="/br/amazon-fires.html">Искусство увольнения: версия Amazon</a>
-
-    <li>2024.05 <a href="/br/regex-lookahead.html">Regex lookahead</a>
-
-    <li>2024.05 <a href="/br/regex-escape.html">Escape: то о чём регулярно забывают</a>
-
-    <li>2024.05 <a href="/br/sparse-clone.html">Не качаем из git лишнее</a>
-
-    <li>2024.04 <a href="/br/router-reboot.html">Внезапная недоступность некоторых IP</a>
-
-    <li>2024.04 <a href="/br/base64-padding.html">Зачем в base64 паддинг</a>
-
-    <li>2024.04 <a href="/br/pdf-tables-ocr.html">Конвертер таблиц из PDF в Excel</a>
-
-    <li>2022.10 <a href="/br/pixel-ordered.html">Google Pixel 7</a>
-
-</ul>
+<h1 data-slug="video-editing" data-ghc-id="" data-tgc-channel="bombingreview" data-tgc-post="21">Редактируем видео из командной строки</h1>
 
 
+
+<p class="textBlock">В последнее время редактирую видео из командной строки.
+В некоторых случаях это удобнее чем работать в визуальном редакторе.
+В других, закономерно, наоборот.
+Но первых всё ещё много, и расчехлять gui ради них было бы грешно.</p><p class="textBlock">Вчера, как раз, сделал видосик.
+Входные данные: pov-видео с кошачьей гонкой <code>cats.mp4</code> и <code>music.mp3</code>.</p><p class="textBlock">Достаём оригинальный звук из видео:</p>
+<pre class="textBlock">ffmpeg -i cats.mp4 orig.wav
+</pre>
+<p class="textBlock">Узнаём длину видео:</p>
+<pre class="textBlock">soxi -D orig.wav
+59.164444
+</pre>
+<p class="textBlock">Декодируем мп3 в вавку:</p>
+<pre class="textBlock">lame --decode music.mp3
+</pre>
+<p class="textBlock">Вырезаем музыку начиная с 0.7 сек длиной 60 сек:</p>
+<pre class="textBlock">sox music.wav music2.wav trim 0.7 60
+</pre>
+<p class="textBlock">Смешиваем звуки погони с музыкой:</p>
+<pre class="textBlock">sox -M music2.wav orig.wav out.wav
+</pre>
+<p class="textBlock">Заменяем звуковую дорожку у ролика; без перекодирования видео:</p>
+<pre class="textBlock">ffmpeg -i cats.mp4 -i out.wav -c:v copy -map 0:v:0 -map 1:a:0 -y out.mp4
+</pre>
+<p class="textBlock">Что получилось:</p>
+<pre class="textBlock">ffprobe out.mp4
+Stream #0:0[0x1](und): Video: h264 (High)...
+Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, quad, fltp, 258 kb/s (default)
+</pre>
+
+
+
+
+<p class="textBlock articleDate">
+    2024.05.28
+    in
+    
+    <a href="/br/tags/automation.html">automation</a>
+    
+</p>
+
+
+
+<div id="tgComments"></div>
 
 
             <!-- pageContent end -->
