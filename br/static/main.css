@@ -253,3 +253,9 @@ blockquote {
   margin-left: 10px;
   color: #666;
 }
+
+/*
+https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll?page=1&tab=trending
+*/
+/*pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }*/
+/*pre::-webkit-scrollbar { width: 0px; }*/
