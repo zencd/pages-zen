@@ -9,11 +9,12 @@
     <script>
         const isWin = navigator.userAgent.toLowerCase().indexOf('windows') >= 0;
         if (isWin) {
-          // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
-          document.write('<style>');
-          document.write('pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }\n');
-          document.write('pre::-webkit-scrollbar { width: 0px; }\n');
-          document.write('</style>');
+            // на Хроме+Вин чудовищные скроллбары видны всегда, если текст <pre> не помещается горизонтально
+            // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
+            document.write('<style>');
+            //document.write('pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }\n');
+            //document.write('pre::-webkit-scrollbar { width: 0px; }\n');
+            document.write('</style>');
         }
     </script>
     

@@ -9,11 +9,12 @@
     <script>
         const isWin = navigator.userAgent.toLowerCase().indexOf('windows') >= 0;
         if (isWin) {
-          // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
-          document.write('<style>');
-          document.write('pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }\n');
-          document.write('pre::-webkit-scrollbar { width: 0px; }\n');
-          document.write('</style>');
+            // на Хроме+Вин чудовищные скроллбары видны всегда, если текст <pre> не помещается горизонтально
+            // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
+            document.write('<style>');
+            //document.write('pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }\n');
+            //document.write('pre::-webkit-scrollbar { width: 0px; }\n');
+            document.write('</style>');
         }
     </script>
     
@@ -95,7 +96,7 @@ BIN=$HOME/bin/realesrgan-ncnn-vulkan-20220424-macos
 (set -x; $BIN/realesrgan-ncnn-vulkan -i "$IN" -o "$OUT1" -n realesr-animevideov3 -m "$BIN/models" -s 2)
 (set -x; $BIN/realesrgan-ncnn-vulkan -i "$IN" -o "$OUT2" -n realesrgan-x4plus -m "$BIN/models" -s 4)
 </pre>
-<p class="textBlock">У форка upscayl замечены и <a href="https://github.com/upscayl/custom-models/tree/main/models">другие модельки</a>, но их не пробовал.</p>
+<p class="textBlock">У форка <code>upscayl</code> замечены и <a href="https://github.com/upscayl/custom-models/">другие модельки</a>, но их не пробовал.</p>
 
 
 

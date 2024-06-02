@@ -9,11 +9,12 @@
     <script>
         const isWin = navigator.userAgent.toLowerCase().indexOf('windows') >= 0;
         if (isWin) {
-          // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
-          document.write('<style>');
-          document.write('pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }\n');
-          document.write('pre::-webkit-scrollbar { width: 0px; }\n');
-          document.write('</style>');
+            // на Хроме+Вин чудовищные скроллбары видны всегда, если текст <pre> не помещается горизонтально
+            // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
+            document.write('<style>');
+            //document.write('pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }\n');
+            //document.write('pre::-webkit-scrollbar { width: 0px; }\n');
+            document.write('</style>');
         }
     </script>
     
@@ -68,9 +69,11 @@ padding-top: 350px;
 
 
 
-<h1>All articles: 24</h1>
+<h1>All articles: 25</h1>
 
 <ul class="filmList">
+
+    <li>2024.06 <a href="/br/php-die.html">PHP умирает разными способами</a>
 
     <li>2024.05 <a href="/br/video-editing.html">Редактируем видео из командной строки</a>
 

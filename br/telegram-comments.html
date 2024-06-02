@@ -9,11 +9,12 @@
     <script>
         const isWin = navigator.userAgent.toLowerCase().indexOf('windows') >= 0;
         if (isWin) {
-          // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
-          document.write('<style>');
-          document.write('pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }\n');
-          document.write('pre::-webkit-scrollbar { width: 0px; }\n');
-          document.write('</style>');
+            // на Хроме+Вин чудовищные скроллбары видны всегда, если текст <pre> не помещается горизонтально
+            // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
+            document.write('<style>');
+            //document.write('pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }\n');
+            //document.write('pre::-webkit-scrollbar { width: 0px; }\n');
+            document.write('</style>');
         }
     </script>
     
@@ -84,8 +85,8 @@ padding-top: 350px;
 </pre>
 <p class="textBlock">Однако, если на сайте динамическая навигация через AJAX, то это уже не сработает.
 Не нагуглил пример, так что делаю свой.
-В примере ниже динамически конструируется тег <code>❮script❯</code>, он вставляется внутрь <code>❮div#tgComments❯</code>, скрипт добавит <code>❮iframe❯</code> рядом с собой, и комментарии подгружаются.
-При смене урла страницы, эту операцию должно повторить, предварительно очистив <code>❮div#tgComments❯</code> от предыдущих комментариев.</p><p class="textBlock">HTML:</p>
+В примере ниже динамически конструируется тег <code>⟨script⟩</code>, он вставляется внутрь <code>⟨div#tgComments⟩</code>, скрипт добавит <code>⟨iframe⟩</code> рядом с собой, и комментарии подгружаются.
+При смене урла страницы, эту операцию должно повторить, предварительно очистив <code>⟨div#tgComments⟩</code> от предыдущих комментариев.</p><p class="textBlock">HTML:</p>
 <pre class="textBlock">&lt;div id=&quot;tgComments&quot;&gt;
   &lt;!-- place for &lt;script&gt; и &lt;iframe&gt; --&gt;
 &lt;/div&gt;
