@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP умирает разными способами - Bombing Review</title>
+    <title>Make vs Create - Bombing Review</title>
     <link rel="stylesheet" type="text/css" href="/br/static/main.css"/>
     <link rel="stylesheet" type="text/css" href="/br/static/player-bar.css" />
     <script>
@@ -22,14 +22,14 @@
 
     <meta property="og:type" content="website" />
 <!--<meta property="og:title" content="title1" />-->
-    <meta property="og:url" content="https://zencd.ru/br/php-die.html" />
+    <meta property="og:url" content="https://zencd.ru/br/make-create.html" />
 <!--<meta property="og:image" content="..." />-->
 <!--<link rel="alternate" type="application/rss+xml" title="..." href="https://..." />-->
 
     
     
 
-    <link rel="canonical" href="https://zencd.ru/br/php-die.html" />
+    <link rel="canonical" href="https://zencd.ru/br/make-create.html" />
     <script src="/br/static/ghc.js"></script>
     <script src="/br/static/tgc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
@@ -39,17 +39,15 @@
 body {
 background:
     linear-gradient(to bottom, rgb(0, 0, 0, 0.0) 0%, rgb(0, 0, 0, 0.0) 100%),
-    url(/br/imgtag/php.webp) no-repeat center center fixed,
-    url() no-repeat center center fixed;
-background-size: auto, cover, cover;
+    url(/br/static/images/blue_explosion.jpg) no-repeat center center fixed;
+background-size: auto, cover;
 }
 .wrap1 {
 background:
   linear-gradient(to bottom, rgb(34, 34, 34, 0) 0px, rgb(34, 34, 34, 0.8) 250px, rgb(34, 34, 34, 0.9) 300px, rgb(34, 34, 34, 1) 350px),
   url(/br/static/scanlines.png),
-  url(/br/imgtag/php.webp) no-repeat top center fixed,
-  url() no-repeat top center fixed;
-background-size: 100%, auto, 650px auto, 650px auto;
+  url(/br/static/images/blue_explosion.jpg) no-repeat top center fixed;
+background-size: 100%, auto, 650px auto;
 padding-top: 350px;
 }
 
@@ -74,49 +72,24 @@ padding-top: 350px;
 
 
 
-<h1 data-slug="php-die" data-ghc-id="" data-tgc-channel="" data-tgc-post="">PHP умирает разными способами</h1>
+<h1 data-slug="make-create" data-ghc-id="" data-tgc-channel="" data-tgc-post="">Make vs Create</h1>
 
 
 
-<p class="textBlock">Увлёкся изучением <code>PHP</code>; это весело, рекомендую.
-Лично я писал на нём на первой работе.
-Со временем всё плохое подзабылось — не пора ли вспомнить...</p><p class="textBlock">Нормальное исполнение скрипта — код завершения ноль:</p>
-<pre class="textBlock">&gt; echo &quot;&lt;?php ;&quot; | php; echo $?
-0
-</pre>
-<p class="textBlock">Случился <code>die</code> — код завершения всё ещё ноль:</p>
-<pre class="textBlock">&gt; echo &quot;&lt;?php die();&quot; | php; echo $?
-0
-</pre>
-<p class="textBlock">Не то что ожидает среднестатистический программист в вакууме.</p><p class="textBlock">Ну, допустим. Но вот исключение даёт уже код <code>255</code>:</p>
-<pre class="textBlock">&gt; echo &quot;&lt;?php throw new Exception();&quot; | php; echo $?
-255
-</pre>
-<p class="textBlock">Весело там у вас.</p><p class="textBlock">А что если синтаксическая ошибка?</p>
-<pre class="textBlock">&gt; echo &quot;&lt;?php bad&quot; | php; echo $?
-PHP Parse error:  syntax error, unexpected end of file in Standard input code on line 2
-255
-</pre>
-<p class="textBlock">Опять 255. Ошибка синтаксиса или ошибка исполнения — see no difference.</p><blockquote>
-<p class="textBlock">Фрукт — фрукт. Сиська — сиська. То же самое, мать твою! (с)</p></blockquote>
-<p class="textBlock">Для сравнения, <code>Perl</code>:</p>
-<pre class="textBlock">&gt; echo &#x27;0 or die &quot;&quot;&#x27; | perl; echo $?
-Died at - line 1.
-9
+<p class="textBlock">С коллегой как-то спорили как по названию отличать метод который только конструирует объект в памяти, от того который с ним делает что-то ещё, например, персистит. Какая конвенция лучше. Я тогда отстаивал что только создаёт в памяти <code>make</code>; коллега — наоборот что <code>create</code>.</p><p class="textBlock">Какой консенсус у сообщества сложился по этому вопросу я не знаю, но в своя версия уже давно не кажется мне однозначным победителем. Вобщем-то, если понадобилось совместить создание объекта в памяти с персистом, то лучше просто это и прописать в сигнатуре метода:</p>
+<pre class="textBlock">create_and_persist_user();
 
-&gt; echo &#x27;%%%&#x27; | perl; echo $?
-syntax error at - line 1, at EOF
-255
+create_user(persist=true);
 </pre>
 
 
 
 
 <p class="textBlock articleDate">
-    2024.06.02
+    2024.06.07
     in
     
-    <a href="/br/tags/php.html">php</a>
+    <a href="/br/tags/general.html">general</a>
     
 </p>
 

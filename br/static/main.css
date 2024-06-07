@@ -137,6 +137,9 @@ audio {
 
 .mainMenu a {
   font-size: 18px;
+  font-family: "Amatic SC", sans-serif;
+  color: #666;
+  font-size: 24px;
   background-color: #111;
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(10px);

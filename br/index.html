@@ -12,8 +12,8 @@
             // на Хроме+Вин чудовищные скроллбары видны всегда, если текст <pre> не помещается горизонтально
             // https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll
             document.write('<style>');
-            //document.write('pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }\n');
-            //document.write('pre::-webkit-scrollbar { width: 0px; }\n');
+            document.write('pre { overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none; }\n');
+            document.write('pre::-webkit-scrollbar { width: 0px; }\n');
             document.write('</style>');
         }
     </script>
@@ -57,6 +57,7 @@ padding-top: 350px;
 <div class="mainMenu" style="position: fixed; top: 0; left: 0; height: 40px; line-height: 40px; z-index: 1000; width: 100%; text-align: center;">
     <a href="/br/">BOMBING REVIEW</a>
     <a href="/br/tags/">TAGS</a>
+    <!--<a href="/br/tags/">🔍</a>-->
     <a href="/br/rss.xml">RSS</a>
 </div>
 
@@ -69,9 +70,11 @@ padding-top: 350px;
 
 
 
-<h1>All articles: 25</h1>
+<h1>All articles: 26</h1>
 
 <ul class="filmList">
+
+    <li>2024.06 <a href="/br/make-create.html">Make vs Create</a>
 
     <li>2024.06 <a href="/br/php-die.html">PHP умирает разными способами</a>
 
