@@ -33,6 +33,14 @@
     <script src="/br/static/ghc.js"></script>
     <script src="/br/static/tgc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
+
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/monokai-sublime.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/browse/highlightjs@11.9.0/styles/tomorrow-night.css"/>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/php.min.js"></script>-->
+
     <style id="pageSpecificStyle">
 
 
@@ -81,7 +89,7 @@ padding-top: 350px;
 <p class="textBlock">Пригодный парсер разметки markdown — <a href="https://marko-py.readthedocs.io/en/latest/">Marko</a>.
 Распарсить — это, само собой, не самоцель, дальше его надо было оттранслировать в HTML.
 Для этого есть готовый класс <code>HTMLRenderer</code>, и остаётся только переопределить некоторые детали его поведения (ну вот, а говорили что ООП не нужно). В примере ниже на параграфы навешивается свой css-класс.</p>
-<pre class="textBlock">class MyHtmlRenderer(marko.HTMLRenderer):
+<pre class="textBlock"><code>class MyHtmlRenderer(marko.HTMLRenderer):
   def render_paragraph(self, element):
     text = self.render_children(element)
     return f&#x27;&lt;p class=&quot;para&quot;&gt;{text}&lt;/p&gt;&#x27;
@@ -94,13 +102,13 @@ class MyTestCase(unittest.TestCase):
     self.assertEqual(
       &#x27;&lt;p class=&quot;para&quot;&gt;hello&lt;/p&gt;&#x27;,
       actual)
-</pre>
+</code></pre>
 <p class="textBlock">Кстати, дизайн там такой себе — сплошные манипуляции со строками; в мире джавы это была бы дичь.</p><p class="textBlock">Ну и куда без callable головного мозга. Чтобы получить AST-дерево, делаем так:</p>
-<pre class="textBlock">Markdown().parse(&#x27;hello&#x27;)
-</pre>
+<pre class="textBlock"><code>Markdown().parse(&#x27;hello&#x27;)
+</code></pre>
 <p class="textBlock">А чтобы оттранслировать в другой язык — делаем нечто совершенно другое:</p>
-<pre class="textBlock">Markdown()(&#x27;hello&#x27;)
-</pre>
+<pre class="textBlock"><code>Markdown()(&#x27;hello&#x27;)
+</code></pre>
 <p class="textBlock">Просто напоминаю, что когда ты ставишь точку, то редактор подсказывает варианты, а то что перед нами callable нужно заранее <em>знать</em>. Да и как ты догадаешься что именно делает каллабл — парсит или транслирует? В случае с вызовом функции такой проблемы нет. Да ты даже помощь по методу посмотреть не сможешь 🤦. Зачем форсить такие неочевидности — совершенно непонятно; какое-то безумие. Но работает.</p>
 
 
@@ -120,7 +128,6 @@ class MyTestCase(unittest.TestCase):
 
             <!-- pageContent end -->
             </div>
-            
         </div>
     </div>
 </div>
@@ -175,6 +182,8 @@ const books = [
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(97301289, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/97301289" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
+
+<!--<script>hljs.highlightAll();</script>-->
 
 </body>
 </html>

@@ -33,6 +33,14 @@
     <script src="/br/static/ghc.js"></script>
     <script src="/br/static/tgc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
+
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/monokai-sublime.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/browse/highlightjs@11.9.0/styles/tomorrow-night.css"/>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/php.min.js"></script>-->
+
     <style id="pageSpecificStyle">
 
 
@@ -81,33 +89,34 @@ padding-top: 350px;
 <p class="textBlock">Увлёкся изучением <code>PHP</code>; это весело, рекомендую.
 Лично я писал на нём на первой работе.
 Со временем всё плохое подзабылось — не пора ли вспомнить...</p><p class="textBlock">Нормальное исполнение скрипта — код завершения ноль:</p>
-<pre class="textBlock">&gt; echo &quot;&lt;?php ;&quot; | php; echo $?
+<pre class="textBlock"><code>&gt; echo &quot;&lt;?php ;&quot; | php; echo $?
 0
-</pre>
+</code></pre>
 <p class="textBlock">Случился <code>die</code> — код завершения всё ещё ноль:</p>
-<pre class="textBlock">&gt; echo &quot;&lt;?php die();&quot; | php; echo $?
+<pre class="textBlock"><code>&gt; echo &quot;&lt;?php die();&quot; | php; echo $?
 0
-</pre>
-<p class="textBlock">Не то что ожидает среднестатистический программист в вакууме.</p><p class="textBlock">Ну, допустим. Но вот исключение даёт уже код <code>255</code>:</p>
-<pre class="textBlock">&gt; echo &quot;&lt;?php throw new Exception();&quot; | php; echo $?
+</code></pre>
+<p class="textBlock">Не то что ожидает среднестатистический программист в вакууме.
+Ну-у, допустим. Но вот исключение даёт уже код <code>255</code>:</p>
+<pre class="textBlock"><code>&gt; echo &quot;&lt;?php throw new Exception();&quot; | php; echo $?
 255
-</pre>
+</code></pre>
 <p class="textBlock">Весело там у вас.</p><p class="textBlock">А что если синтаксическая ошибка?</p>
-<pre class="textBlock">&gt; echo &quot;&lt;?php bad&quot; | php; echo $?
+<pre class="textBlock"><code>&gt; echo &quot;&lt;?php bad&quot; | php; echo $?
 PHP Parse error:  syntax error, unexpected end of file in Standard input code on line 2
 255
-</pre>
-<p class="textBlock">Опять 255. Ошибка синтаксиса или ошибка исполнения — see no difference.</p><blockquote>
+</code></pre>
+<p class="textBlock">Опять 255. Ошибка синтаксиса или ошибка исполнения — вобще нет разницы.</p><blockquote>
 <p class="textBlock">Фрукт — фрукт. Сиська — сиська. То же самое, мать твою! (с)</p></blockquote>
 <p class="textBlock">Для сравнения, <code>Perl</code>:</p>
-<pre class="textBlock">&gt; echo &#x27;0 or die &quot;&quot;&#x27; | perl; echo $?
+<pre class="textBlock"><code>&gt; echo &#x27;0 or die&#x27; | perl; echo $?
 Died at - line 1.
 9
 
 &gt; echo &#x27;%%%&#x27; | perl; echo $?
 syntax error at - line 1, at EOF
 255
-</pre>
+</code></pre>
 
 
 
@@ -127,7 +136,6 @@ syntax error at - line 1, at EOF
 
             <!-- pageContent end -->
             </div>
-            
         </div>
     </div>
 </div>
@@ -182,6 +190,8 @@ const books = [
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(97301289, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/97301289" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
+
+<!--<script>hljs.highlightAll();</script>-->
 
 </body>
 </html>

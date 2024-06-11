@@ -121,17 +121,17 @@ audio {
   color: #666;
 }
 
-.filmList {
+.articleList {
   list-style-type: none;
   padding: 0;
 }
-.filmList li {
+.articleList li {
   margin-top: 24px;
 }
-.filmList a {
+.articleList a {
   text-decoration: none;
 }
-.filmList a:hover {
+.articleList a:hover {
   text-decoration: underline;
 }
 
@@ -206,11 +206,11 @@ abbr, code {
   xline-height: 44px;
 }
 
-pre {
+pre, pre code {
   font-size: 15px;
   color: #999;
   overflow-x: auto;
-  font-family: monospace;
+  font-family: Menlo, monospace;
 }
 
 .fileName {

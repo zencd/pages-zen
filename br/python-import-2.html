@@ -33,6 +33,14 @@
     <script src="/br/static/ghc.js"></script>
     <script src="/br/static/tgc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
+
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/monokai-sublime.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/browse/highlightjs@11.9.0/styles/tomorrow-night.css"/>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/php.min.js"></script>-->
+
     <style id="pageSpecificStyle">
 
 
@@ -81,38 +89,38 @@ padding-top: 350px;
 <p class="textBlock">Оказалось, что Питон умеет в т.с. транзитивныe импорты. И это не достоинство.
 Обнаружил, как и в <a href="python-import-mess.html">прошлый раз</a>, в ходе рефакторинга.
 Иначе не поверил бы, что это реально.</p>
-<pre class="textBlock">+------+    +------+    +------+
+<pre class="textBlock"><code>+------+    +------+    +------+
 | mod1 | &lt;- | mod2 | &lt;- | mod3 |
 +------+    +------+    +------+
-</pre>
+</code></pre>
 <p class="textBlock">Когда некий символ импортируется в модуль 2, то для других модулей этот символ становится доступен к импорту из модуля 2 как будто он был там <em>декларирован</em>. Ну да, давай добавим дополнительную связь между модулями, офигительная же идея; инкапсуляция по Монти Пайтону, лол.</p><p class="textBlock">В нормальном окружении программист хочет другого:</p>
-<pre class="textBlock">+------+
+<pre class="textBlock"><code>+------+
 | mod1 | &lt;-- mod2
 |      | &lt;-- mod3
 +------+
-</pre>
+</code></pre>
 <h2>Верификация</h2>
 
 <div class="fileName">File: pytrans/mod1.py</div>
 
-<pre class="textBlock">class Foo: pass
-</pre>
+<pre class="textBlock"><code>class Foo: pass
+</code></pre>
 
 <div class="fileName">File: pytrans/mod2.py</div>
 
-<pre class="textBlock">from mod1 import Foo
-</pre>
+<pre class="textBlock"><code>from mod1 import Foo
+</code></pre>
 
 <div class="fileName">File: pytrans/mod3.py</div>
 
-<pre class="textBlock">from mod1 import Foo as Foo1
+<pre class="textBlock"><code>from mod1 import Foo as Foo1
 from mod2 import Foo as Foo2
 print(Foo1 is Foo2)
-</pre>
+</code></pre>
 <p class="textBlock">Результат:</p>
-<pre class="textBlock">&gt; python3 mod3.py
+<pre class="textBlock"><code>&gt; python3 mod3.py
 True
-</pre>
+</code></pre>
 
 
 
@@ -132,7 +140,6 @@ True
 
             <!-- pageContent end -->
             </div>
-            
         </div>
     </div>
 </div>
@@ -187,6 +194,8 @@ const books = [
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(97301289, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/97301289" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
+
+<!--<script>hljs.highlightAll();</script>-->
 
 </body>
 </html>

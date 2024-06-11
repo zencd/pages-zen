@@ -33,6 +33,14 @@
     <script src="/br/static/ghc.js"></script>
     <script src="/br/static/tgc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
+
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/monokai-sublime.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/browse/highlightjs@11.9.0/styles/tomorrow-night.css"/>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/php.min.js"></script>-->
+
     <style id="pageSpecificStyle">
 
 
@@ -79,29 +87,29 @@ padding-top: 350px;
 
 
 <p class="textBlock">В <a href="regex-escape.html">предыдущей заметке</a> задача ставилась так: удалить все символы перед определенным символом. Оригинальное решение работает ожидаемо только для части символов: для доллара уже не сработает, а для открывающих скобок вобще свалится с исключением:</p>
-<pre class="textBlock">String baeldungIncorrect(String input, String find) {
+<pre class="textBlock"><code>String baeldungIncorrect(String input, String find) {
   return find + input.replaceAll(&quot;.*&quot; + find, &quot;&quot;);
 }
-</pre>
+</code></pre>
 <p class="textBlock">Это ошибка. Исправим:</p>
-<pre class="textBlock">String baeldungFixed(String input, String find) {
+<pre class="textBlock"><code>String baeldungFixed(String input, String find) {
   return find + input.replaceAll(&quot;.*&quot; + Pattern.quote(find), &quot;&quot;);
 }
-</pre>
+</code></pre>
 <p class="textBlock">Сначала вырезать символ, а потом его же добавлять обратно — получается довольно глупо.
 Я бы сделал это через единственную операцию замены, используя regex lookahead:</p>
-<pre class="textBlock">String lookahead(String input, String find) {
+<pre class="textBlock"><code>String lookahead(String input, String find) {
   return input.replaceAll(&quot;.*(?=&quot; + Pattern.quote(find) + &quot;)&quot;, &quot;&quot;);
 }
-</pre>
+</code></pre>
 <p class="textBlock">Верификация:</p>
-<pre class="textBlock">@Test
+<pre class="textBlock"><code>@Test
 public void test() {
   assertEquals(&quot;$&quot;, baeldungIncorrect(&quot;12$34$56&quot;, &quot;$&quot;));
   assertEquals(&quot;$56&quot;, baeldungFixed(&quot;12$34$56&quot;, &quot;$&quot;));
   assertEquals(&quot;$56&quot;, lookahead(&quot;12$34$56&quot;, &quot;$&quot;));
 }
-</pre>
+</code></pre>
 
 
 
@@ -121,7 +129,6 @@ public void test() {
 
             <!-- pageContent end -->
             </div>
-            
         </div>
     </div>
 </div>
@@ -176,6 +183,8 @@ const books = [
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(97301289, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/97301289" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
+
+<!--<script>hljs.highlightAll();</script>-->
 
 </body>
 </html>

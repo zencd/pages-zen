@@ -33,6 +33,14 @@
     <script src="/br/static/ghc.js"></script>
     <script src="/br/static/tgc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
+
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/monokai-sublime.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/browse/highlightjs@11.9.0/styles/tomorrow-night.css"/>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/php.min.js"></script>-->
+
     <style id="pageSpecificStyle">
 
 
@@ -79,7 +87,7 @@ padding-top: 350px;
 
 
 <p class="textBlock">Взял данные с <a href="https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html">Tom's hardware</a>, и пересчитал на деньги.</p><p class="textBlock">Вобщем-то, с 2020 позиционирование линеек амд кардинально не поменялось, кроме врыва X3D, который в первой таблице лучший и по абсолютному показателю производительности, и по относительному в топ-5.</p><p class="textBlock">Игры в 1440p:</p>
-<pre class="textBlock">| CPU               | $$$ | Perf | Price Performance |
+<pre class="textBlock"><code>| CPU               | $$$ | Perf | Price Performance |
 |-------------------|-----|------|-------------------|
 | Ryzen 5 7600X     | 249 | 66.8 | 0.268             |
 | Core i5-13400 / F | 220 | 57.5 | 0.261             |
@@ -95,9 +103,9 @@ padding-top: 350px;
 | Core i9-13900K    | 589 | 88   | 0.149             |
 | Ryzen 9 7950X3D   | 699 | 99.8 | 0.142             |
 | Ryzen 9 7950X     | 569 | 75.7 | 0.133             |
-</pre>
+</code></pre>
 <p class="textBlock">Многоядерная производительность:</p>
-<pre class="textBlock">| $$$ | CPU              | Perf  | Price Performance |
+<pre class="textBlock"><code>| $$$ | CPU              | Perf  | Price Performance |
 |-----|------------------|-------|-------------------|
 | 99  | Ryzen 5 5500     | 29.5  | 0.297             |
 | 100 | Core i3-12100    | 23.3  | 0.233             |
@@ -129,7 +137,7 @@ padding-top: 350px;
 | 589 | Core i9-12900K   | 69.85 | 0.118             |
 | 449 | Ryzen 7 7800X3D  | 52.3  | 0.116             |
 | 365 | Ryzen 7 5800X3D  | 41.54 | 0.113             |
-</pre>
+</code></pre>
 <p class="textBlock">Пока считал, нашёлся ещё один <a href="https://www.cpubenchmark.net/cpu_value_available.html#single-value">рейтинг</a>.</p>
 
 
@@ -149,7 +157,6 @@ padding-top: 350px;
 
             <!-- pageContent end -->
             </div>
-            
         </div>
     </div>
 </div>
@@ -204,6 +211,8 @@ const books = [
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(97301289, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/97301289" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
+
+<!--<script>hljs.highlightAll();</script>-->
 
 </body>
 </html>

@@ -33,6 +33,14 @@
     <script src="/br/static/ghc.js"></script>
     <script src="/br/static/tgc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
+
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/monokai-sublime.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/browse/highlightjs@11.9.0/styles/tomorrow-night.css"/>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/php.min.js"></script>-->
+
     <style id="pageSpecificStyle">
 
 
@@ -81,7 +89,7 @@ padding-top: 350px;
 <p class="textBlock">Загадка любителям Питона. Основано на реальных событиях. Что напечатается в консоли?</p>
 <div class="fileName">File: pymp2exc/mod1.py</div>
 
-<pre class="textBlock">import mod2
+<pre class="textBlock"><code>import mod2
 class MyException(Exception):
     pass
 if __name__ == '__main__':
@@ -90,14 +98,14 @@ if __name__ == '__main__':
         print('raised some')
     except MyException:
         print('caught it')
-</pre>
+</code></pre>
 
 <div class="fileName">File: pymp2exc/mod2.py</div>
 
-<pre class="textBlock">from mod1 import MyException
+<pre class="textBlock"><code>from mod1 import MyException
 def raise_some():
     raise MyException()
-</pre>
+</code></pre>
 <p class="textBlock">Заранее скажу: Питон 3.11 на этот код не ругается, ему норм.</p>
 <div class="textBlock"><details>
 	<summary>Правильный ответ</summary>
@@ -108,7 +116,7 @@ def raise_some():
 	<p>
 	Почему так.
 	Программист декларирует один класс исключения, но щедрый Питон делает их два, разных.
-	Ожидаем __main__.MyException, прилетает mod1.MyException.
+	Ожидаем <code>__main__.MyException</code>, прилетает <code>mod1.MyException</code>.
 	</p>
 	<p>
 	Неплохое дополнение к другим особенностям работы питона с модулями.
@@ -134,7 +142,6 @@ def raise_some():
 
             <!-- pageContent end -->
             </div>
-            
         </div>
     </div>
 </div>
@@ -189,6 +196,8 @@ const books = [
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(97301289, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/97301289" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
+
+<!--<script>hljs.highlightAll();</script>-->
 
 </body>
 </html>

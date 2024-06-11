@@ -33,6 +33,14 @@
     <script src="/br/static/ghc.js"></script>
     <script src="/br/static/tgc.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic%20SC:700&display=swap" rel="stylesheet">
+
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/default.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/github-dark.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/styles/monokai-sublime.min.css"/>-->
+<!--    <link rel="stylesheet" href="https://unpkg.com/browse/highlightjs@11.9.0/styles/tomorrow-night.css"/>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>-->
+<!--    <script src="https://unpkg.com/@highlightjs/cdn-assets@11.9.0/languages/php.min.js"></script>-->
+
     <style id="pageSpecificStyle">
 
 
@@ -83,29 +91,29 @@ padding-top: 350px;
 В других, закономерно, наоборот.
 Но первых всё ещё много, и расчехлять gui ради них было бы грешно.</p><p class="textBlock">Вчера, как раз, сделал видосик.
 Входные данные: pov-видео с кошачьей гонкой <code>cats.mp4</code> и <code>music.mp3</code>.</p><p class="textBlock">Достаём оригинальный звук из видео:</p>
-<pre class="textBlock">ffmpeg -i cats.mp4 orig.wav
-</pre>
+<pre class="textBlock"><code>ffmpeg -i cats.mp4 orig.wav
+</code></pre>
 <p class="textBlock">Узнаём длину видео:</p>
-<pre class="textBlock">soxi -D orig.wav
+<pre class="textBlock"><code>soxi -D orig.wav
 59.164444
-</pre>
+</code></pre>
 <p class="textBlock">Декодируем мп3 в вавку:</p>
-<pre class="textBlock">lame --decode music.mp3
-</pre>
+<pre class="textBlock"><code>lame --decode music.mp3
+</code></pre>
 <p class="textBlock">Вырезаем музыку начиная с 0.7 сек длиной 60 сек:</p>
-<pre class="textBlock">sox music.wav music2.wav trim 0.7 60
-</pre>
+<pre class="textBlock"><code>sox music.wav music2.wav trim 0.7 60
+</code></pre>
 <p class="textBlock">Смешиваем звуки погони с музыкой:</p>
-<pre class="textBlock">sox -M music2.wav orig.wav out.wav
-</pre>
+<pre class="textBlock"><code>sox -M music2.wav orig.wav out.wav
+</code></pre>
 <p class="textBlock">Заменяем звуковую дорожку у ролика; без перекодирования видео:</p>
-<pre class="textBlock">ffmpeg -i cats.mp4 -i out.wav -c:v copy -map 0:v:0 -map 1:a:0 -y out.mp4
-</pre>
+<pre class="textBlock"><code>ffmpeg -i cats.mp4 -i out.wav -c:v copy -map 0:v:0 -map 1:a:0 -y out.mp4
+</code></pre>
 <p class="textBlock">Что получилось:</p>
-<pre class="textBlock">ffprobe out.mp4
+<pre class="textBlock"><code>ffprobe out.mp4
 Stream #0:0[0x1](und): Video: h264 (High)...
 Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, quad, fltp, 258 kb/s (default)
-</pre>
+</code></pre>
 <p class="textBlock"><a href="https://t.me/bombingreview/22">t.me/bombingreview/22</a></p>
 
 
@@ -125,7 +133,6 @@ Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, quad, fltp
 
             <!-- pageContent end -->
             </div>
-            
         </div>
     </div>
 </div>
@@ -180,6 +187,8 @@ const books = [
 
 <!-- Yandex.Metrika counter --> <script type="text/javascript" > (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)}; m[i].l=1*new Date(); for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }} k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym"); ym(97301289, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true }); </script> <noscript><div><img src="https://mc.yandex.ru/watch/97301289" style="position:absolute; left:-9999px;" alt="" /></div></noscript> <!-- /Yandex.Metrika counter -->
 
+
+<!--<script>hljs.highlightAll();</script>-->
 
 </body>
 </html>
