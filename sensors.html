@@ -7,8 +7,9 @@
     }
 </style>
 <body>
-    <div id="angle-to-horizon">?</div>
-    <div id="angle-to-north">?</div>
+    <div id="angle-alpha">?</div>
+    <div id="angle-beta">?</div>
+    <div id="angle-gamma">?</div>
 </body>
 <script>
     // Функция throttle будет принимать 2 аргумента:
@@ -41,10 +42,9 @@
 
     function onDeviceOrientation(event) {
         //console.log(`${event.alpha} : ${event.beta} : ${event.gamma}`);
-        var $angleToHorizon = document.getElementById('angle-to-horizon');
-        var $angleToNorth = document.getElementById('angle-to-north');
-        $angleToHorizon.innerHTML = 'Angle To Horizon: ' + event.beta.toFixed(3);
-        $angleToNorth.innerHTML = 'Angle To North: ' + event.alpha.toFixed(3);
+        document.getElementById('angle-alpha').innerHTML = "Alpha: " + event.alpha.toFixed(3);
+        document.getElementById('angle-beta').innerHTML = "Beta: " + event.beta.toFixed(3);
+        document.getElementById('angle-gamma').innerHTML = "Gamma: " + event.gamma.toFixed(3);
     }
 
     const throttled = throttle(onDeviceOrientation, 250)
