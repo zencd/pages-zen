@@ -1,0 +1,21 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<style>
+    div {
+        font-size: 36px;
+        line-height: 72px;
+    }
+</style>
+<body>
+    <div id="angle-to-horizon">?</div>
+    <div id="angle-to-north">?</div>
+</body>
+<script>
+    window.addEventListener("deviceorientation", (event) => {
+        //console.log(`${event.alpha} : ${event.beta} : ${event.gamma}`);
+        var $angleToHorizon = document.getElementById('angle-to-horizon');
+        var $angleToNorth = document.getElementById('angle-to-north');
+        $angleToHorizon.innerHTML = 'Angle To Horizon: ' + event.beta;
+        $angleToNorth.innerHTML = 'Angle To North: ' + event.alpha;
+    });
+</script>
