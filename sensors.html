@@ -2,8 +2,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 <style>
     div {
-        font-size: 36px;
-        line-height: 72px;
+        font-size: 24px;
+        line-height: 48px;
     }
 </style>
 <body>
@@ -15,7 +15,7 @@
         //console.log(`${event.alpha} : ${event.beta} : ${event.gamma}`);
         var $angleToHorizon = document.getElementById('angle-to-horizon');
         var $angleToNorth = document.getElementById('angle-to-north');
-        $angleToHorizon.innerHTML = 'Angle To Horizon: ' + event.beta;
-        $angleToNorth.innerHTML = 'Angle To North: ' + event.alpha;
+        $angleToHorizon.innerHTML = 'Angle To Horizon: ' + event.beta.toFixed(3);
+        $angleToNorth.innerHTML = 'Angle To North: ' + event.alpha.toFixed(3);
     });
 </script>
