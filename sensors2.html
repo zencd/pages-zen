@@ -1,0 +1,76 @@
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+<style>
+    div {
+        font-size: 24px;
+        line-height: 48px;
+    }
+</style>
+<body>
+    <div id="angle-alpha">?</div>
+    <div id="angle-beta">?</div>
+    <div id="angle-gamma">?</div>
+    <div id="compass-heading">?</div>
+</body>
+<script>
+    function throttle(callee, timeout) {
+        let timer = null
+        return function perform(...args) {
+            if (timer) return
+            timer = setTimeout(() => {
+                callee(...args)
+                clearTimeout(timer)
+                timer = null
+            }, timeout)
+        }
+    }
+
+    function compassHeading(alpha, beta, gamma) {
+
+        // Convert degrees to radians
+        const alphaRad = alpha * (Math.PI / 180);
+        const betaRad = beta * (Math.PI / 180);
+        const gammaRad = gamma * (Math.PI / 180);
+
+        // Calculate equation components
+        const cA = Math.cos(alphaRad);
+        const sA = Math.sin(alphaRad);
+        const cB = Math.cos(betaRad);
+        const sB = Math.sin(betaRad);
+        const cG = Math.cos(gammaRad);
+        const sG = Math.sin(gammaRad);
+
+        // Calculate A, B, C rotation components
+        const rA = - cA * sG - sA * sB * cG;
+        const rB = - sA * sG + cA * sB * cG;
+        const rC = - cB * cG;
+
+        // Calculate compass heading
+        let compassHeading = Math.atan(rA / rB);
+
+        // Convert from half unit circle to whole unit circle
+        if(rB < 0) {
+            compassHeading += Math.PI;
+        }else if(rA < 0) {
+            compassHeading += 2 * Math.PI;
+        }
+
+        // Convert radians to degrees
+        compassHeading *= 180 / Math.PI;
+
+        return compassHeading;
+    }
+
+    function onDeviceOrientation(event) {
+        const heading = compassHeading(event.alpha, event.beta, event.gamma);
+        //console.log(`${event.alpha} : ${event.beta} : ${event.gamma}`);
+        document.getElementById('angle-alpha').innerHTML = "Alpha: " + event.alpha.toFixed(3);
+        document.getElementById('angle-beta').innerHTML = "Beta: " + event.beta.toFixed(3);
+        document.getElementById('angle-gamma').innerHTML = "Gamma: " + event.gamma.toFixed(3);
+        document.getElementById('compass-heading').innerHTML = "Heading: " + heading;
+    }
+
+    const throttled = throttle(onDeviceOrientation, 250)
+
+    window.addEventListener("deviceorientation", throttled);
+</script>
